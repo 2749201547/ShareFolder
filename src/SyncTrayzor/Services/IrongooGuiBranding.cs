@@ -100,6 +100,18 @@ namespace SyncTrayzor.Services
             "  border-color: #333333 !important;\n" +
             "  color: #e6e6e6 !important;\n" +
             "}\n" +
+            /* Focus glow: white, same strength as Bootstrap blue (0.6 / 8px) */
+            ".form-control:focus,\n" +
+            ".form-control:focus-visible,\n" +
+            "input.form-control:focus,\n" +
+            "textarea.form-control:focus,\n" +
+            "select.form-control:focus,\n" +
+            ".input-group .form-control:focus {\n" +
+            "  border-color: rgba(255,255,255,.85) !important;\n" +
+            "  outline: 0 !important;\n" +
+            "  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,255,255,.6) !important;\n" +
+            "  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,255,255,.6) !important;\n" +
+            "}\n" +
             ".modal-content {\n" +
             "  background-color: #252526 !important;\n" +
             "  border-color: #333333 !important;\n" +
@@ -130,10 +142,36 @@ namespace SyncTrayzor.Services
             ".btn-success.active,\n" +
             ".label-success,\n" +
             ".bg-success,\n" +
-            ".progress-bar-success {\n" +
+            ".progress-bar-success,\n" +
+            ".modal-header.alert-warning,\n" +
+            ".alert-warning,\n" +
+            ".panel-warning > .panel-heading,\n" +
+            ".panel-warning > .panel-heading .panel-title {\n" +
             "  background-color: #E73F91 !important;\n" +
             "  background-image: none !important;\n" +
             "  border-color: #C9347A !important;\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            ".panel-warning {\n" +
+            "  border-color: #C9347A !important;\n" +
+            "  background-color: #252526 !important;\n" +
+            "}\n" +
+            /* Pending device/folder notice body stays dark */
+            ".panel-warning > .panel-body,\n" +
+            ".panel-warning > .panel-footer {\n" +
+            "  background-color: #252526 !important;\n" +
+            "  border-color: #333333 !important;\n" +
+            "  color: #e6e6e6 !important;\n" +
+            "}\n" +
+            /* Timestamp: normal UI font (Syncthing/theme often forces odd mono digits) */
+            ".panel-warning > .panel-heading .pull-right,\n" +
+            ".panel-warning > .panel-heading .panel-title .pull-right {\n" +
+            "  font-family: \"Segoe UI\", \"Microsoft YaHei UI\", \"Microsoft YaHei\", sans-serif !important;\n" +
+            "  font-size: 13px !important;\n" +
+            "  font-weight: 400 !important;\n" +
+            "  font-variant-numeric: normal !important;\n" +
+            "  font-feature-settings: normal !important;\n" +
+            "  letter-spacing: 0 !important;\n" +
             "  color: #ffffff !important;\n" +
             "}\n" +
             ".text-info,\n" +
@@ -370,6 +408,23 @@ namespace SyncTrayzor.Services
             "}\n" +
             "#folder-general > .form-group:has(#folderID) { order: 1 !important; }\n" +
             "#folder-general > .form-group:has(#folderPath) { order: 2 !important; }\n" +
+            ".irongoo-folder-path-row {\n" +
+            "  display: flex !important;\n" +
+            "  align-items: stretch !important;\n" +
+            "  gap: 8px !important;\n" +
+            "  width: 100% !important;\n" +
+            "}\n" +
+            ".irongoo-folder-path-row #folderPath {\n" +
+            "  flex: 1 1 auto !important;\n" +
+            "  width: auto !important;\n" +
+            "  min-width: 0 !important;\n" +
+            "}\n" +
+            "#folderPathBrowseButton {\n" +
+            "  flex: 0 0 auto !important;\n" +
+            "  margin: 0 !important;\n" +
+            "  white-space: nowrap !important;\n" +
+            "  align-self: stretch !important;\n" +
+            "}\n" +
             "#folder-general > .form-group:has(#folderLabel) { order: 3 !important; }\n" +
             "#folder-general > .form-group:has(#folderGroup) { order: 4 !important; }\n" +
             "#folder-general > .irongoo-share-host { order: 5 !important; margin-top: 12px !important; }\n" +
@@ -542,6 +597,8 @@ namespace SyncTrayzor.Services
             "[id^=\"folders\"] > .panel > .panel-heading,\n" +
             "[id^=\"devices\"] > .panel > .panel-heading {\n" +
             "  display: block !important;\n" +
+            "  position: relative !important;\n" +
+            "  z-index: 2 !important;\n" +
             "  width: 100% !important;\n" +
             "  height: 42px !important;\n" +
             "  min-height: 42px !important;\n" +
@@ -579,10 +636,16 @@ namespace SyncTrayzor.Services
             "[id^=\"devices\"] .panel-heading .panel-status {\n" +
             "  order: 3 !important;\n" +
             "  float: none !important;\n" +
+            "  position: static !important;\n" +
             "  margin-left: auto !important;\n" +
             "  margin-right: 0 !important;\n" +
             "  flex: 0 0 auto !important;\n" +
             "  text-align: right !important;\n" +
+            "  max-width: 45% !important;\n" +
+            "  overflow: hidden !important;\n" +
+            "  text-overflow: ellipsis !important;\n" +
+            "  white-space: nowrap !important;\n" +
+            "  z-index: 1 !important;\n" +
             "}\n" +
             "[id^=\"devices\"] .panel-heading .panel-status .reception {\n" +
             "  display: none !important;\n" +
@@ -668,25 +731,54 @@ namespace SyncTrayzor.Services
             "  position: absolute !important;\n" +
             "  left: 0 !important;\n" +
             "  right: 0 !important;\n" +
-            "  top: 100% !important;\n" +
+            "  /* Clear the header so status (e.g. Unshared) never covers Folder Path */\n" +
+            "  top: calc(100% + 10px) !important;\n" +
             "  width: 100% !important;\n" +
             "  max-width: 100% !important;\n" +
-            "  z-index: 2000 !important;\n" +
+            "  z-index: 40 !important;\n" +
             "  display: block !important;\n" +
             "  float: none !important;\n" +
             "  height: auto !important;\n" +
             "  max-height: 70vh !important;\n" +
             "  overflow-x: hidden !important;\n" +
             "  overflow-y: auto !important;\n" +
-            "  margin: 6px 0 0 0 !important;\n" +
+            "  margin: 0 !important;\n" +
             "  padding: 0 !important;\n" +
             "  box-sizing: border-box !important;\n" +
+            "  /* Solid fill — transparent body used to show pink Listeners text through as “dots” */\n" +
             "  background: #252526 !important;\n" +
+            "  background-clip: padding-box !important;\n" +
+            "  isolation: isolate !important;\n" +
             "  border: 1px solid #333333 !important;\n" +
             "  border-radius: 4px !important;\n" +
-            "  box-shadow: 0 8px 24px rgba(0,0,0,.45) !important;\n" +
+            "  box-shadow: 0 8px 24px rgba(0,0,0,.55) !important;\n" +
             "  -webkit-transition: none !important;\n" +
             "  transition: none !important;\n" +
+            "}\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in > .panel-body,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in > .panel-body {\n" +
+            "  padding-top: 10px !important;\n" +
+            "  background: #252526 !important;\n" +
+            "}\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table,\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr > th,\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr > td,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr > th,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr > td {\n" +
+            "  background-color: #252526 !important;\n" +
+            "}\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table-striped > tbody > tr:nth-of-type(odd) > th,\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table-striped > tbody > tr:nth-of-type(odd) > td,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table-striped > tbody > tr:nth-of-type(odd) > th,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table-striped > tbody > tr:nth-of-type(odd) > td {\n" +
+            "  background-color: #222222 !important;\n" +
+            "}\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr:first-child > th,\n" +
+            "[id^=\"folders\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr:first-child > td,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr:first-child > th,\n" +
+            "[id^=\"devices\"] > .panel > .panel-collapse.collapse.in .table > tbody > tr:first-child > td {\n" +
+            "  padding-top: 8px !important;\n" +
             "}\n" +
             "[id^=\"folders\"] > .panel > .panel-collapse.collapsing,\n" +
             "[id^=\"devices\"] > .panel > .panel-collapse.collapsing {\n" +
@@ -698,16 +790,24 @@ namespace SyncTrayzor.Services
             "}\n" +
             "[id^=\"folders\"] > .panel > .panel-collapse .panel-body,\n" +
             "[id^=\"devices\"] > .panel > .panel-collapse .panel-body {\n" +
-            "  background: transparent !important;\n" +
+            "  background: #252526 !important;\n" +
             "}\n" +
             "[id^=\"folders\"] > .panel > .panel-collapse .panel-footer,\n" +
             "[id^=\"devices\"] > .panel > .panel-collapse .panel-footer {\n" +
-            "  background: transparent !important;\n" +
+            "  background: #252526 !important;\n" +
             "  border-top: 1px solid #333333 !important;\n" +
             "}\n" +
             "[id^=\"folders\"] > .panel > .panel-heading.irongoo-float-active,\n" +
             "[id^=\"devices\"] > .panel > .panel-heading.irongoo-float-active {\n" +
             "  border-color: #E73F91 !important;\n" +
+            "}\n" +
+            /* Tooltips must sit above clipped float panels */
+            ".tooltip {\n" +
+            "  z-index: 10000 !important;\n" +
+            "}\n" +
+            ".tooltip .tooltip-inner {\n" +
+            "  max-width: 320px !important;\n" +
+            "  text-align: left !important;\n" +
             "}\n" +
             /* Remote device: replace identicon with users icon */
             "[id^=\"devices\"] identicon.panel-icon.irongoo-users-icon {\n" +
@@ -733,6 +833,10 @@ namespace SyncTrayzor.Services
             "  display: inline-flex !important;\n" +
             "  align-items: center !important;\n" +
             "  justify-content: center !important;\n" +
+            "  cursor: pointer !important;\n" +
+            "  position: relative !important;\n" +
+            "  z-index: 2 !important;\n" +
+            "  box-shadow: none !important;\n" +
             "}\n" +
             "[id^=\"folders\"] .panel-heading .panel-icon.irongoo-folder-icon > .fa,\n" +
             "[id^=\"folders\"] .panel-heading .panel-icon.irongoo-folder-icon > .fas,\n" +
@@ -745,6 +849,19 @@ namespace SyncTrayzor.Services
             "  width: 1.35em !important;\n" +
             "  height: 1.35em !important;\n" +
             "  fill: currentColor !important;\n" +
+            "  pointer-events: none !important;\n" +
+            "  transition: filter .15s ease !important;\n" +
+            "  filter: none !important;\n" +
+            "}\n" +
+            /* Edge-only white glow (same strength family as input focus rgba .6) */
+            "[id^=\"folders\"] .panel-heading .panel-icon.irongoo-folder-icon:hover > svg.irongoo-folder-svg {\n" +
+            "  filter: drop-shadow(0 0 0.5px rgba(255,255,255,.95))\n" +
+            "          drop-shadow(0 0 2px rgba(255,255,255,.75))\n" +
+            "          drop-shadow(0 0 6px rgba(255,255,255,.6)) !important;\n" +
+            "}\n" +
+            "[id^=\"folders\"] .panel-heading .panel-icon.irongoo-folder-icon:active > svg.irongoo-folder-svg {\n" +
+            "  filter: drop-shadow(0 0 0.5px rgba(255,255,255,.85))\n" +
+            "          drop-shadow(0 0 4px rgba(255,255,255,.5)) !important;\n" +
             "}\n" +
             /* This Device: home-computer icon */
             "#irongoo-this-device-wrap identicon.panel-icon.irongoo-home-icon,\n" +
@@ -841,7 +958,7 @@ namespace SyncTrayzor.Services
 
         private const string IrongooExtrasJs =
             "(function(){\n" +
-            "  if (window.__irongooExtrasV === 67) return; window.__irongooExtrasV = 67;\n" +
+            "  if (window.__irongooExtrasV === 83) return; window.__irongooExtrasV = 83;\n" +
             "  if (typeof window.__irongooShowThisDevice === 'undefined') window.__irongooShowThisDevice = true;\n" +
             "  window.__irongooFloatWired = false;\n" +
             "  try{\n" +
@@ -856,7 +973,7 @@ namespace SyncTrayzor.Services
             "      l.id = 'irongoo-theme-link'; l.rel = 'stylesheet';\n" +
             "      (document.head || document.documentElement).appendChild(l);\n" +
             "    }\n" +
-            "    l.href = 'assets/css/irongoo.css?v=67';\n" +
+            "    l.href = 'assets/css/irongoo.css?v=83';\n" +
             "  })();\n" +
             "  var IRONGOO_USERS_SVG = '<svg class=\"irongoo-users-svg\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 10C14.2091 10 16 8.20914 16 6 16 3.79086 14.2091 2 12 2 9.79086 2 8 3.79086 8 6 8 8.20914 9.79086 10 12 10ZM5.5 13C6.88071 13 8 11.8807 8 10.5 8 9.11929 6.88071 8 5.5 8 4.11929 8 3 9.11929 3 10.5 3 11.8807 4.11929 13 5.5 13ZM21 10.5C21 11.8807 19.8807 13 18.5 13 17.1193 13 16 11.8807 16 10.5 16 9.11929 17.1193 8 18.5 8 19.8807 8 21 9.11929 21 10.5ZM12 11C14.7614 11 17 13.2386 17 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5 15.9999C5 15.307 5.10067 14.6376 5.28818 14.0056L5.11864 14.0204C3.36503 14.2104 2 15.6958 2 17.4999V21.9999H5V15.9999ZM22 21.9999V17.4999C22 15.6378 20.5459 14.1153 18.7118 14.0056 18.8993 14.6376 19 15.307 19 15.9999V21.9999H22Z\"></path></svg>';\n" +
             "  var IRONGOO_FOLDER_SVG = '<svg class=\"irongoo-folder-svg\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 21C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5H20C20.5523 5 21 5.44772 21 6V9H4V18.996L6 11H22.5L20.1894 20.2425C20.0781 20.6877 19.6781 21 19.2192 21H3Z\"></path></svg>';\n" +
@@ -903,6 +1020,73 @@ namespace SyncTrayzor.Services
             "      }\n" +
             "    }catch(e){}\n" +
             "  }\n" +
+            "  function folderInfoFromIcon(el){\n" +
+            "    var info={id:'', path:''};\n" +
+            "    if(!el) return info;\n" +
+            "    info.id=el.getAttribute('data-folder-id')||'';\n" +
+            "    info.path=el.getAttribute('data-folder-path')||'';\n" +
+            "    try{\n" +
+            "      if(window.angular){\n" +
+            "        var sc=angular.element(el).scope();\n" +
+            "        while(sc){\n" +
+            "          if(sc.folder){\n" +
+            "            if(sc.folder.id) info.id=sc.folder.id;\n" +
+            "            if(sc.folder.path) info.path=sc.folder.path;\n" +
+            "            break;\n" +
+            "          }\n" +
+            "          sc=sc.$parent;\n" +
+            "        }\n" +
+            "      }\n" +
+            "    }catch(e){}\n" +
+            "    if(!info.id){\n" +
+            "      try{\n" +
+            "        var panel=el.closest ? el.closest('.panel') : null;\n" +
+            "        if(panel){\n" +
+            "          var tip=panel.querySelector('.panel-title-text [data-original-title], .panel-title-text [title]');\n" +
+            "          if(tip){\n" +
+            "            var t=tip.getAttribute('data-original-title')||tip.getAttribute('title')||'';\n" +
+            "            if(t) info.id=t;\n" +
+            "          }\n" +
+            "          var idCell=panel.querySelector('td.no-overflow-ellipse');\n" +
+            "          if(!info.id && idCell && (idCell.textContent||'').trim()) info.id=idCell.textContent.trim();\n" +
+            "          // Folder Path row value\n" +
+            "          if(!info.path){\n" +
+            "            var rows=panel.querySelectorAll('.panel-collapse td.text-right, .panel-body td.text-right');\n" +
+            "            for(var r=0;r<rows.length;r++){\n" +
+            "              var txt=(rows[r].textContent||'').trim();\n" +
+            "              if(/^[A-Za-z]:[\\\\/]/.test(txt) || txt.indexOf('\\\\\\\\')===0 || txt.indexOf('/')===0){ info.path=txt; break; }\n" +
+            "            }\n" +
+            "          }\n" +
+            "        }\n" +
+            "      }catch(e2){}\n" +
+            "    }\n" +
+            "    return info;\n" +
+            "  }\n" +
+            "  function openLocalFolderFromIcon(el){\n" +
+            "    var info=folderInfoFromIcon(el);\n" +
+            "    if(info.id) el.setAttribute('data-folder-id', info.id);\n" +
+            "    if(info.path) el.setAttribute('data-folder-path', info.path);\n" +
+            "    var go=function(){\n" +
+            "      try{\n" +
+            "        var cb=window.callbackObject;\n" +
+            "        if(cb){\n" +
+            "          if(info.path && typeof cb.openFolderPath==='function'){ cb.openFolderPath(info.path); return; }\n" +
+            "          if(info.id && typeof cb.openFolder==='function'){ cb.openFolder(info.id); return; }\n" +
+            "        }\n" +
+            "      }catch(e){}\n" +
+            "      try{\n" +
+            "        if(window.CefSharp && CefSharp.BindObjectAsync){\n" +
+            "          CefSharp.BindObjectAsync('callbackObject').then(function(){\n" +
+            "            var cb2=window.callbackObject;\n" +
+            "            if(!cb2) return;\n" +
+            "            if(info.path && cb2.openFolderPath) cb2.openFolderPath(info.path);\n" +
+            "            else if(info.id && cb2.openFolder) cb2.openFolder(info.id);\n" +
+            "          });\n" +
+            "        }\n" +
+            "      }catch(e2){}\n" +
+            "    };\n" +
+            "    setTimeout(go, 0);\n" +
+            "  }\n" +
             "  function ensureFolderIcons(){\n" +
             "    try{\n" +
             "      var icons=document.querySelectorAll('[id^=\"folders\"] .panel-heading .panel-icon');\n" +
@@ -919,8 +1103,62 @@ namespace SyncTrayzor.Services
             "          if(kids[k].classList && kids[k].classList.contains('irongoo-folder-svg')) continue;\n" +
             "          kids[k].style.display='none';\n" +
             "        }\n" +
+            "        var info=folderInfoFromIcon(el);\n" +
+            "        if(info.id) el.setAttribute('data-folder-id', info.id);\n" +
+            "        if(info.path) el.setAttribute('data-folder-path', info.path);\n" +
+            "        var tip=isZh()?'打开本地文件夹':'Open local folder';\n" +
+            "        if(el.getAttribute('title')!==tip) el.setAttribute('title', tip);\n" +
+            "        el.setAttribute('data-irongoo-open','1');\n" +
             "      }\n" +
             "    }catch(e){}\n" +
+            "  }\n" +
+            "  function wireFolderIconOpenOnly(){\n" +
+            "    if(window.__irongooFolderIconWired) return;\n" +
+            "    window.__irongooFolderIconWired=true;\n" +
+            "    function isFolderIconEvent(ev){\n" +
+            "      var t=ev && ev.target;\n" +
+            "      if(!t || !t.closest) return null;\n" +
+            "      return t.closest('[id^=\"folders\"] .panel-heading .panel-icon.irongoo-folder-icon, [id^=\"folders\"] .irongoo-folder-icon');\n" +
+            "    }\n" +
+            "    function blockCollapse(ev){\n" +
+            "      var icon=isFolderIconEvent(ev);\n" +
+            "      if(!icon) return false;\n" +
+            "      if(ev.button!=null && ev.button!==0) return false;\n" +
+            "      ev.preventDefault();\n" +
+            "      ev.stopPropagation();\n" +
+            "      if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();\n" +
+            "      window.__irongooBlockCollapse=Date.now();\n" +
+            "      return icon;\n" +
+            "    }\n" +
+            "    function openOnce(icon){\n" +
+            "      // One open per gesture (pointerdown/mousedown/click + dual handlers)\n" +
+            "      var now=Date.now();\n" +
+            "      if(window.__irongooOpenAt && (now-window.__irongooOpenAt)<700) return;\n" +
+            "      window.__irongooOpenAt=now;\n" +
+            "      openLocalFolderFromIcon(icon);\n" +
+            "    }\n" +
+            "    // Block collapse on press; open only once on click\n" +
+            "    document.addEventListener('pointerdown', function(ev){ blockCollapse(ev); }, true);\n" +
+            "    document.addEventListener('mousedown', function(ev){ blockCollapse(ev); }, true);\n" +
+            "    document.addEventListener('mouseup', function(ev){ blockCollapse(ev); }, true);\n" +
+            "    document.addEventListener('click', function(ev){\n" +
+            "      var icon=blockCollapse(ev);\n" +
+            "      if(icon) openOnce(icon);\n" +
+            "    }, true);\n" +
+            "    document.addEventListener('show.bs.collapse', function(ev){\n" +
+            "      if(window.__irongooBlockCollapse && (Date.now()-window.__irongooBlockCollapse)<800){\n" +
+            "        ev.preventDefault();\n" +
+            "        ev.stopPropagation();\n" +
+            "        if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();\n" +
+            "      }\n" +
+            "    }, true);\n" +
+            "    document.addEventListener('hide.bs.collapse', function(ev){\n" +
+            "      if(window.__irongooBlockCollapse && (Date.now()-window.__irongooBlockCollapse)<800){\n" +
+            "        ev.preventDefault();\n" +
+            "        ev.stopPropagation();\n" +
+            "        if(ev.stopImmediatePropagation) ev.stopImmediatePropagation();\n" +
+            "      }\n" +
+            "    }, true);\n" +
             "  }\n" +
             "  function hideUrModal(){\n" +
             "    try{\n" +
@@ -1577,6 +1815,44 @@ namespace SyncTrayzor.Services
             "      forceHideFloat(nodes[i]);\n" +
             "    }\n" +
             "  }\n" +
+            "  function ensureTooltipBodyContainer(){\n" +
+            "    try{\n" +
+            "      if(window.jQuery && jQuery.fn && jQuery.fn.tooltip && jQuery.fn.tooltip.Constructor){\n" +
+            "        jQuery.fn.tooltip.Constructor.DEFAULTS.container = 'body';\n" +
+            "      }\n" +
+            "    }catch(e){}\n" +
+            "    try{\n" +
+            "      var nodes=document.querySelectorAll('[tooltip], [data-toggle=\"tooltip\"], [data-original-title]');\n" +
+            "      for(var i=0;i<nodes.length;i++){\n" +
+            "        if(!nodes[i].getAttribute('data-container')) nodes[i].setAttribute('data-container','body');\n" +
+            "      }\n" +
+            "    }catch(e2){}\n" +
+            "    if(!window.__irongooTipBodyWired){\n" +
+            "      window.__irongooTipBodyWired=true;\n" +
+            "      document.addEventListener('show.bs.tooltip', function(ev){\n" +
+            "        try{\n" +
+            "          var t=ev.target;\n" +
+            "          if(t && !t.getAttribute('data-container')) t.setAttribute('data-container','body');\n" +
+            "          if(window.jQuery){\n" +
+            "            var $t=jQuery(t);\n" +
+            "            var tip=$t.data('bs.tooltip');\n" +
+            "            if(tip){\n" +
+            "              tip.options.container='body';\n" +
+            "              if(tip.$tip && tip.$tip.length && tip.$tip.parent()[0]!==document.body)\n" +
+            "                tip.$tip.appendTo(document.body);\n" +
+            "            }\n" +
+            "          }\n" +
+            "        }catch(e3){}\n" +
+            "      }, true);\n" +
+            "      document.addEventListener('inserted.bs.tooltip', function(ev){\n" +
+            "        try{\n" +
+            "          if(!window.jQuery) return;\n" +
+            "          var tip=jQuery(ev.target).data('bs.tooltip');\n" +
+            "          if(tip && tip.$tip && tip.$tip.length) tip.$tip.appendTo(document.body);\n" +
+            "        }catch(e4){}\n" +
+            "      }, true);\n" +
+            "    }\n" +
+            "  }\n" +
             "  function wireFloatPanels(){\n" +
             "    if(window.__irongooFloatWired) return;\n" +
             "    window.__irongooFloatWired=true;\n" +
@@ -1761,9 +2037,12 @@ namespace SyncTrayzor.Services
             "    if(heading.parentElement===host && host.firstChild!==heading) host.insertBefore(heading, host.firstChild);\n" +
             "    if(host.parentElement===general && general.lastElementChild!==host) general.appendChild(host);\n" +
             "  }\n" +
-            "  function ensureFolderGroupOptionalLabel(){\n" +
-            "    var lab=document.querySelector('label[for=\"folderGroup\"]');\n" +
+            "  function ensureOptionalLabel(forId){\n" +
+            "    var lab=document.querySelector('label[for=\"'+forId+'\"]');\n" +
             "    if(!lab) return;\n" +
+            "    // Syncthing may already include optional text in the label — avoid doubling\n" +
+            "    var raw=(lab.textContent||'').replace(/\\s+/g,' ');\n" +
+            "    if(/选填|optional/i.test(raw) && !lab.querySelector('.irongoo-optional')) return;\n" +
             "    var opt=lab.querySelector('.irongoo-optional');\n" +
             "    var want=isZh()?'（选填）':' (optional)';\n" +
             "    if(opt){\n" +
@@ -1775,6 +2054,48 @@ namespace SyncTrayzor.Services
             "    opt.textContent=want;\n" +
             "    lab.appendChild(opt);\n" +
             "  }\n" +
+            "  function ensureFolderGroupOptionalLabel(){\n" +
+            "    ensureOptionalLabel('folderLabel');\n" +
+            "    ensureOptionalLabel('folderGroup');\n" +
+            "  }\n" +
+            "  function ensureFolderPathBrowse(){\n" +
+            "    var input=document.getElementById('folderPath');\n" +
+            "    if(!input) return;\n" +
+            "    var btn=document.getElementById('folderPathBrowseButton');\n" +
+            "    var row=input.parentElement;\n" +
+            "    if(!row || !row.classList.contains('irongoo-folder-path-row')){\n" +
+            "      row=document.createElement('div');\n" +
+            "      row.className='irongoo-folder-path-row';\n" +
+            "      if(input.parentNode) input.parentNode.insertBefore(row, input);\n" +
+            "      row.appendChild(input);\n" +
+            "    }\n" +
+            "    if(!btn){\n" +
+            "      btn=document.createElement('button');\n" +
+            "      btn.type='button';\n" +
+            "      btn.id='folderPathBrowseButton';\n" +
+            "      btn.className='btn btn-sm btn-default';\n" +
+            "      btn.addEventListener('click', function(ev){\n" +
+            "        ev.preventDefault(); ev.stopPropagation();\n" +
+            "        try{\n" +
+            "          if(window.callbackObject && typeof callbackObject.browseFolderPath==='function')\n" +
+            "            callbackObject.browseFolderPath();\n" +
+            "        }catch(e){}\n" +
+            "      });\n" +
+            "    }\n" +
+            "    // Browse button at the start (left of path input)\n" +
+            "    if(row.firstChild!==btn) row.insertBefore(btn, row.firstChild);\n" +
+            "    if(input.parentElement===row && btn.nextSibling!==input) row.insertBefore(input, btn.nextSibling);\n" +
+            "    var label=isZh()?'浏览':'Browse';\n" +
+            "    if(btn.getAttribute('data-label')!==label){\n" +
+            "      btn.setAttribute('data-label', label);\n" +
+            "      btn.innerHTML='<span class=\"fas fa-folder-open\"></span>&nbsp;'+label;\n" +
+            "    }\n" +
+            "    if(input.hasAttribute('readonly') || input.disabled) btn.setAttribute('disabled','disabled');\n" +
+            "    else btn.removeAttribute('disabled');\n" +
+            "    input.removeAttribute('list');\n" +
+            "    var dl=document.getElementById('directory-list');\n" +
+            "    if(dl && dl.parentNode) dl.parentNode.removeChild(dl);\n" +
+            "  }\n" +
             "  function editFolderOpen(){\n" +
             "    var m=document.getElementById('editFolder');\n" +
             "    return !!(m && (m.classList.contains('in')||m.classList.contains('show')||m.style.display==='block'));\n" +
@@ -1785,12 +2106,15 @@ namespace SyncTrayzor.Services
             "    ensureRemoteUsersIcons();\n" +
             "    ensureThisDeviceIcon();\n" +
             "    ensureFolderIcons();\n" +
+            "    wireFolderIconOpenOnly();\n" +
             "    ensureAllModalHeaderCloses();\n" +
+            "    ensureTooltipBodyContainer();\n" +
             "    if(editFolderOpen()){\n" +
             "      ensureDeviceGroupOptionalLabel();\n" +
             "      ensureFolderGroupOptionalLabel();\n" +
             "      ensureFolderGeneralFieldOrder();\n" +
             "      ensureFolderSharingOnGeneral();\n" +
+            "      ensureFolderPathBrowse();\n" +
             "    }\n" +
             "  }\n" +
             "  function scan(){\n" +
@@ -1802,12 +2126,15 @@ namespace SyncTrayzor.Services
             "    ensureRemoteUsersIcons();\n" +
             "    ensureThisDeviceIcon();\n" +
             "    ensureFolderIcons();\n" +
+            "    wireFolderIconOpenOnly();\n" +
             "    ensureAllModalHeaderCloses();\n" +
+            "    ensureTooltipBodyContainer();\n" +
             "    if(editFolderOpen()){\n" +
             "      ensureDeviceGroupOptionalLabel();\n" +
             "      ensureFolderGroupOptionalLabel();\n" +
             "      ensureFolderGeneralFieldOrder();\n" +
             "      ensureFolderSharingOnGeneral();\n" +
+            "      ensureFolderPathBrowse();\n" +
             "    }\n" +
             "    wireFloatPanels();\n" +
             "    repositionOpenFloatPanels();\n" +
@@ -1857,6 +2184,7 @@ namespace SyncTrayzor.Services
             "      ensureFolderSharingOnGeneral();\n" +
             "      ensureFolderGroupOptionalLabel();\n" +
             "      ensureDeviceGroupOptionalLabel();\n" +
+            "      ensureFolderPathBrowse();\n" +
             "    }\n" +
             "  }, true);\n" +
             "  document.addEventListener('show.bs.modal', function(ev){\n" +

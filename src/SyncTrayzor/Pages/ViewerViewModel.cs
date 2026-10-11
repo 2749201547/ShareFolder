@@ -4,6 +4,7 @@ using SyncTrayzor.Syncthing;
 using SyncTrayzor.Utils;
 using System;
 using System.Globalization;
+using System.Linq;
 using CefSharp;
 using CefSharp.Wpf;
 using SyncTrayzor.Services.Config;
@@ -282,25 +283,32 @@ namespace SyncTrayzor.Pages
                         @"";
                     RunJs(addOpenFolderButton);
 
+                    var browseLabel = (Resources.ViewerView_BrowseToFolder ?? "Browse")
+                        .Replace("\\", "\\\\").Replace("'", "\\'");
                     var addFolderBrowse =
-                        @"$('#folderPath').wrap($('<div/>').css('display', 'flex'));" +
-                        @"$('#folderPath').after(" +
-                        @"  $('<button>').attr('id', 'folderPathBrowseButton')" +
-                        @"               .addClass('btn btn-sm btn-default')" +
-                        @"               .html('" + Resources.ViewerView_BrowseToFolder + @"')" +
-                        @"               .css({'flex-grow': 1, 'margin': '0 0 0 5px'})" +
-                        @"               .on('click', function() { callbackObject.browseFolderPath() })" +
-                        @");" +
-                        @"$('#folderPath').removeAttr('list');" +
-                        @"$('#directory-list').remove();" +
-                        @"$('#editFolder').on('shown.bs.modal', function() {" +
-                        @"  if ($('#folderPath').is('[readonly]')) {" +
-                        @"      $('#folderPathBrowseButton').attr('disabled', 'disabled');" +
+                        @"var syncTrayzorEnsureFolderBrowse = function() {" +
+                        @"  var $input = $('#folderPath');" +
+                        @"  if (!$input.length) return;" +
+                        @"  if (!$input.parent().hasClass('irongoo-folder-path-row')) {" +
+                        @"    $input.wrap($('<div/>').addClass('irongoo-folder-path-row').css({display:'flex',alignItems:'stretch',gap:'8px',width:'100%'}));" +
                         @"  }" +
-                        @"  else {" +
-                        @"      $('#folderPathBrowseButton').removeAttr('disabled');" +
+                        @"  var $row = $input.parent();" +
+                        @"  var $btn = $('#folderPathBrowseButton');" +
+                        @"  if (!$btn.length) {" +
+                        @"    $btn = $('<button type=""button""/>').attr('id', 'folderPathBrowseButton')" +
+                        @"      .addClass('btn btn-sm btn-default')" +
+                        @"      .html('<span class=""fas fa-folder-open""></span>&nbsp;" + browseLabel + @"')" +
+                        @"      .on('click', function(e) { e.preventDefault(); try { callbackObject.browseFolderPath(); } catch (ex) {} });" +
                         @"  }" +
-                        @"});";
+                        @"  $row.prepend($btn);" +
+                        @"  $btn.after($input);" +
+                        @"  $input.removeAttr('list'); $('#directory-list').remove();" +
+                        @"  if ($input.is('[readonly]')) $btn.attr('disabled', 'disabled'); else $btn.removeAttr('disabled');" +
+                        @"};" +
+                        @"$('#editFolder').off('shown.bs.modal.stBrowse').on('shown.bs.modal.stBrowse', syncTrayzorEnsureFolderBrowse);" +
+                        @"syncTrayzorEnsureFolderBrowse();" +
+                        @"setTimeout(syncTrayzorEnsureFolderBrowse, 300);" +
+                        @"setTimeout(syncTrayzorEnsureFolderBrowse, 1000);";
                     RunJs(addFolderBrowse);
 
                     // Theme pink + device-ID click-to-copy (no text-selection blue highlight)
@@ -434,9 +442,25 @@ namespace SyncTrayzor.Pages
                         @"  var styleCss = '.modal-header.alert,.modal-header.alert-info,.alert-info,#idqr .modal-header,' +" +
                         @"'.modal-header.alert-success,.alert-success,.panel-success>.panel-heading,' +" +
                         @"'.btn-success,.btn-success:hover,.btn-success:focus,.btn-success:active,' +" +
-                        @"'.btn-success:active:hover,.btn-success.active,.label-success,.bg-success,.progress-bar-success{' +" +
+                        @"'.btn-success:active:hover,.btn-success.active,.label-success,.bg-success,.progress-bar-success,' +" +
+                        @"'.modal-header.alert-warning,.alert-warning,.panel-warning>.panel-heading,' +" +
+                        @"'.panel-warning>.panel-heading .panel-title{' +" +
                         @"'background-color:#E73F91!important;background-image:none!important;' +" +
                         @"'border-color:#C9347A!important;color:#fff!important;}' +" +
+                        @"'.panel-warning{border-color:#C9347A!important;background-color:#252526!important;}' +" +
+                        @"'.panel-warning>.panel-body,.panel-warning>.panel-footer{' +" +
+                        @"'background-color:#252526!important;border-color:#333!important;color:#e6e6e6!important;}' +" +
+                        @"'.panel-warning>.panel-heading .pull-right,.panel-warning>.panel-heading .panel-title .pull-right{' +" +
+                        @"'font-family:""Segoe UI"",""Microsoft YaHei UI"",""Microsoft YaHei"",sans-serif!important;' +" +
+                        @"'font-size:13px!important;font-weight:400!important;font-variant-numeric:normal!important;' +" +
+                        @"'letter-spacing:0!important;color:#fff!important;}' +" +
+                        @"'.form-control:focus,.form-control:focus-visible,input.form-control:focus,textarea.form-control:focus,select.form-control:focus{' +" +
+                        @"'border-color:rgba(255,255,255,.85)!important;outline:0!important;' +" +
+                        @"'box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,255,255,.6)!important;' +" +
+                        @"'-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,255,255,.6)!important;}' +" +
+                        @"'.irongoo-folder-path-row{display:flex!important;align-items:stretch!important;gap:8px!important;width:100%!important;}' +" +
+                        @"'.irongoo-folder-path-row #folderPath{flex:1 1 auto!important;width:auto!important;min-width:0!important;}' +" +
+                        @"'#folderPathBrowseButton{flex:0 0 auto!important;margin:0!important;white-space:nowrap!important;}' +" +
                         @"'.text-success,.text-primary,a.text-primary{color:#E73F91!important;}' +" +
                         @"'.btn-primary,.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active{' +" +
                         @"'background-color:#E73F91!important;background-image:none!important;border-color:#C9347A!important;color:#fff!important;}' +" +
@@ -569,17 +593,38 @@ namespace SyncTrayzor.Pages
                         @"      if (!document.getElementById('irongoo-theme-link')) {" +
                         @"        var l = document.createElement('link');" +
                         @"        l.id = 'irongoo-theme-link'; l.rel = 'stylesheet';" +
-                        @"        l.href = 'assets/css/irongoo.css?v=67';" +
+                        @"        l.href = 'assets/css/irongoo.css?v=83';" +
                         @"        (document.head||document.documentElement).appendChild(l);" +
                         @"      }" +
                         @"      var st = document.getElementById('irongoo-theme-style');" +
                         @"      if (!st) {" +
                         @"        st = document.createElement('style'); st.id = 'irongoo-theme-style';" +
-                        @"        st.setAttribute('data-v','67');" +
+                        @"        st.setAttribute('data-v','83');" +
                         @"        (document.head||document.documentElement).appendChild(st);" +
                         @"        st.textContent = styleCss;" +
-                        @"      } else if (st.getAttribute('data-v') !== '67') {" +
-                        @"        st.setAttribute('data-v','67'); st.textContent = styleCss;" +
+                        @"      } else if (st.getAttribute('data-v') !== '83') {" +
+                        @"        st.setAttribute('data-v','83'); st.textContent = styleCss;" +
+                        @"      }" +
+                        /* Icon: block collapse only here; open is handled once in irongoo extras */
+                        @"      if (!window.__irongooFolderIconOpen) {" +
+                        @"        window.__irongooFolderIconOpen = true;" +
+                        @"        var blockIconOnly = function(ev){" +
+                        @"          if (ev.button != null && ev.button !== 0) return;" +
+                        @"          var icon = ev.target && ev.target.closest ? ev.target.closest('.irongoo-folder-icon') : null;" +
+                        @"          if (!icon) return;" +
+                        @"          ev.preventDefault(); ev.stopPropagation();" +
+                        @"          if (ev.stopImmediatePropagation) ev.stopImmediatePropagation();" +
+                        @"          window.__irongooBlockCollapse = Date.now();" +
+                        @"        };" +
+                        @"        document.addEventListener('click', blockIconOnly, true);" +
+                        @"        document.addEventListener('mousedown', blockIconOnly, true);" +
+                        @"        document.addEventListener('pointerdown', blockIconOnly, true);" +
+                        @"        document.addEventListener('show.bs.collapse', function(ev){" +
+                        @"          if (window.__irongooBlockCollapse && (Date.now()-window.__irongooBlockCollapse)<800) {" +
+                        @"            ev.preventDefault(); ev.stopPropagation();" +
+                        @"            if (ev.stopImmediatePropagation) ev.stopImmediatePropagation();" +
+                        @"          }" +
+                        @"        }, true);" +
                         @"      }" +
                         @"      filterLanguages();" +
                         @"      var helpMenus = document.querySelectorAll('.navbar .dropdown.action-menu');" +
@@ -805,10 +850,35 @@ namespace SyncTrayzor.Pages
 
         private void OpenFolder(string folderId)
         {
-            if (!syncthingManager.Folders.TryFetchById(folderId, out var folder))
+            if (string.IsNullOrWhiteSpace(folderId))
                 return;
 
-            processStartProvider.ShowFolderInExplorer(folder.Path);
+            Execute.OnUIThread(() =>
+            {
+                if (!syncthingManager.Folders.TryFetchById(folderId, out var folder))
+                {
+                    // Fallback: match by id/label ignoring case
+                    folder = syncthingManager.Folders.FetchAll()?
+                        .FirstOrDefault(f =>
+                            string.Equals(f.FolderId, folderId, StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(f.Label, folderId, StringComparison.OrdinalIgnoreCase));
+                    if (folder == null)
+                        return;
+                }
+
+                if (string.IsNullOrWhiteSpace(folder.Path))
+                    return;
+
+                processStartProvider.ShowFolderInExplorer(folder.Path);
+            });
+        }
+
+        private void OpenFolderPath(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return;
+
+            Execute.OnUIThread(() => processStartProvider.ShowFolderInExplorer(path));
         }
 
         private void BrowseFolderPath()
@@ -1015,6 +1085,11 @@ namespace SyncTrayzor.Pages
             public void OpenFolder(string folderId)
             {
                 parent.OpenFolder(folderId);
+            }
+
+            public void OpenFolderPath(string path)
+            {
+                parent.OpenFolderPath(path);
             }
 
             public void BrowseFolderPath()
