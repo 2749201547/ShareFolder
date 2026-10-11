@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using NLog;
 using System;
 using System.Collections.Generic;
@@ -32,10 +32,10 @@ namespace SyncTrayzor.Services
     public class AutostartProvider : IAutostartProvider
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private const string applicationName = "SyncTrayzor";
+        private const string applicationName = "irongoo";
         private const string runPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
         private const string runPathWithHive = @"HKEY_CURRENT_USER\" + runPath;
-        // Matches 'SyncTrayzor' and 'SyncTrayzor (n)' (where n is a digit)
+        // Matches 'irongoo' and 'irongoo (n)' (where n is a digit)
         private static readonly Regex keyRegex = new("^" + applicationName + @"(?: \((\d+)\))?$");
         private readonly string keyName;
 
@@ -152,7 +152,7 @@ namespace SyncTrayzor.Services
             if (foundKey != null)
                 return foundKey;
 
-            // No numbers seen? "SyncTrayzor". The logic below can't handle an empty list either
+            // No numbers seen? "irongoo". The logic below can't handle an empty list either
             if (numbersSeen.Count == 0)
                 return applicationName;
 

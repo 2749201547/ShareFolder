@@ -1,4 +1,4 @@
-﻿using FluentValidation;
+using FluentValidation;
 using NLog;
 using Stylet;
 using StyletIoC;
@@ -13,6 +13,7 @@ using SyncTrayzor.Syncthing;
 using SyncTrayzor.Syncthing.ApiClient;
 using SyncTrayzor.Syncthing.EventWatcher;
 using SyncTrayzor.Utils;
+using SyncTrayzor.Localization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,7 +24,6 @@ using System.Windows.Markup;
 using System.Windows.Threading;
 using SyncTrayzor.Services.Metering;
 using System.Reflection;
-using SyncTrayzor.Localization;
 using SyncTrayzor.Services.Ipc;
 using System.Net;
 using System.Runtime.Versioning;
@@ -181,8 +181,13 @@ namespace SyncTrayzor
             // Has to be done before the VMs are fetched from the container
             if (options.Culture != null)
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(options.Culture);
+            else if (!string.IsNullOrWhiteSpace(configuration.UiCulture))
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(configuration.UiCulture);
             else if (!configuration.UseComputerCulture)
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+
+            UiLanguage.ApplyToThread(Thread.CurrentThread.CurrentUICulture);
+            UiLanguage.Instance.Apply(Thread.CurrentThread.CurrentUICulture.Name);
 
             // WPF ignores the current culture by default - so we have to force it
             FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),

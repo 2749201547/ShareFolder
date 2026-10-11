@@ -1,4 +1,4 @@
-﻿using NLog;
+using NLog;
 using System;
 using System.IO;
 
@@ -55,7 +55,7 @@ namespace SyncTrayzor.Services.Config
             ConfigurationFilePath = pathTransformer.MakeAbsolute(pathConfiguration.ConfigurationFilePath);
             ConfigurationFileBackupPath = pathTransformer.MakeAbsolute(pathConfiguration.ConfigurationFileBackupPath);
             CefCachePath = pathTransformer.MakeAbsolute(pathConfiguration.CefCachePath);
-            UpdatesDownloadPath = Path.Combine(Path.GetTempPath(), "SyncTrayzor");
+            UpdatesDownloadPath = Path.Combine(Path.GetTempPath(), "irongoo");
             InstallCountFilePath = pathTransformer.MakeAbsolute("InstallCount.txt");
             DefaultSyncthingPath = String.IsNullOrWhiteSpace(pathConfiguration.SyncthingPath) ?
                 null :

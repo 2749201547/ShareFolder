@@ -25,6 +25,7 @@ namespace SyncTrayzor.Pages
         private readonly IProcessStartProvider processStartProvider;
 
         public bool ShowConsole { get; set; }
+        public bool ShowThisDevice { get; set; }
         public double ConsoleHeight { get; set; }
         public WindowPlacement Placement { get; set; }
         public IDonationManager DonationManager { get; }
@@ -80,6 +81,14 @@ namespace SyncTrayzor.Pages
             this.Bind(s => s.ShowConsole, (o, e) =>
             {
                 ConsoleHeight = e.NewValue ? Configuration.DefaultSyncthingConsoleHeight : 0.0;
+            });
+
+            ShowThisDevice = !configuration.HideThisDevice;
+            Viewer.ApplyShowThisDevice(ShowThisDevice);
+            this.Bind(s => s.ShowThisDevice, (o, e) =>
+            {
+                configurationProvider.AtomicLoadAndSave(c => c.HideThisDevice = !e.NewValue);
+                Viewer.ApplyShowThisDevice(e.NewValue);
             });
 
             Placement = configuration.WindowPlacement;

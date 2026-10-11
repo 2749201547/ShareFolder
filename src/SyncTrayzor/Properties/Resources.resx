@@ -136,7 +136,7 @@
     <value>Show Open Source Licenses</value>
   </data>
   <data name="AboutView_SyncthingVersion" xml:space="preserve">
-    <value>Syncthing Version: {0}</value>
+    <value>irongoo Version: {0}</value>
     <comment>Information showing the user the current version of Syncthing
 {0}: Current Syncthing version</comment>
   </data>
@@ -173,10 +173,10 @@
     <value>About</value>
   </data>
   <data name="ShellView_Menu_Syncthing" xml:space="preserve">
-    <value>Syncthing</value>
+    <value>irongoo</value>
   </data>
   <data name="ShellView_Menu_Syncthing_KillAll" xml:space="preserve">
-    <value>Kill all Syncthing processes</value>
+    <value>Kill all irongoo processes</value>
   </data>
   <data name="ShellView_Menu_Syncthing_OpenExternal" xml:space="preserve">
     <value>Open in external browser</value>
@@ -210,15 +210,15 @@
     <comment>When a new version is available, the user receives a prompt. This message tells the user how to permanently disable new version prompts. 'The Settings page' corresponds to ShellView_Menu_File. 'Help -&gt;About' corresponds to ShellView_Menu_Help_About.</comment>
   </data>
   <data name="NewVersionAlertView_NewVersionAvailable" xml:space="preserve">
-    <value>SyncTrayzor version {0} is available!</value>
+    <value>irongoo version {0} is available!</value>
     <comment>When a new version is available, the user receives a prompt. This text appears at the top of that prompt</comment>
   </data>
   <data name="NewVersionAlertView_Title" xml:space="preserve">
-    <value>SyncTrayzor Update Available</value>
+    <value>irongoo Update Available</value>
     <comment>When a new version is available, the user receives a prompt. This is the title of that prompt.</comment>
   </data>
   <data name="SettingsView_AlertOnNewVersion" xml:space="preserve">
-    <value>Alert if a new version of SyncTrayzor is available</value>
+    <value>Alert if a new version of irongoo is available</value>
   </data>
   <data name="SettingsView_CloseToTray" xml:space="preserve">
     <value>Close to tray</value>
@@ -243,11 +243,11 @@
     <comment>Section header for settings to do with automatically starting SyncTrayzor when the user logs in</comment>
   </data>
   <data name="SettingsView_Section_Syncthing" xml:space="preserve">
-    <value>Syncthing</value>
+    <value>irongoo</value>
     <comment>Section header for settings to do with configuring Syncthing</comment>
   </data>
   <data name="SettingsView_Section_SyncTrayzor" xml:space="preserve">
-    <value>SyncTrayzor</value>
+    <value>irongoo</value>
     <comment>Section header for settings to do with configuring SyncTrayzor</comment>
   </data>
   <data name="SettingsView_StartMinimized" xml:space="preserve">
@@ -259,18 +259,18 @@
     <comment>Setting allowing the user to specify that SyncTrayzor should be started when the user logs in</comment>
   </data>
   <data name="SettingsView_StartOnLogin_PermissionDenied" xml:space="preserve">
-    <value>Permission denied. Please start SyncTrayzor as an Administrator to change these settings.</value>
+    <value>Permission denied. Please start irongoo as an Administrator to change these settings.</value>
     <comment>Message displayed instead of SettingsView_StartOnLogin SettingsView_StartMinimized when the user doesn't have permission to edit the registry</comment>
   </data>
   <data name="SettingsView_StartSyncthingAutomatically" xml:space="preserve">
-    <value>Start Syncthing when SyncTrayzor starts</value>
+    <value>Start irongoo when irongoo starts</value>
     <comment>Setting allowing the user to specify that Syncthing should be start automatically when SyncTrayzor starts</comment>
   </data>
   <data name="SettingsView_SyncthingAddress" xml:space="preserve">
     <value>GUI Listen Address:</value>
   </data>
   <data name="SettingsView_SyncthingAddress_ToolTip" xml:space="preserve">
-    <value>SyncTrayzor overrides the "GUI Listen Address" specified in Syncthing's configuration. However, you can set it to whatever value you like here.</value>
+    <value>irongoo overrides the "GUI Listen Address" specified in irongoo's configuration. However, you can set it to whatever value you like here.</value>
     <comment>ToolTip shown when a user hovers over the SettingsView_SyncthingAddress text input. This shows more information on the input.</comment>
   </data>
   <data name="SettingsView_Title" xml:space="preserve">
@@ -278,24 +278,24 @@
     <comment>Title of the 'settings' dialog</comment>
   </data>
   <data name="SettingsView_SyncthingEnvironmentalVariables" xml:space="preserve">
-    <value>Syncthing Environmental Variables:</value>
+    <value>irongoo Environmental Variables:</value>
   </data>
   <data name="SettingsView_WatchedFolders_Explanation" xml:space="preserve">
-    <value>Watched: The folder will be watched for changes, which means you can set a longer polling interval in Syncthing.
+    <value>Watched: The folder will be watched for changes, which means you can set a longer polling interval in irongoo.
 
 Notifications: You will receive 'Synchronized' balloon messages when files in this folder are updated.</value>
   </data>
   <data name="SettingsView_WatchedFolders_Unavailable" xml:space="preserve">
-    <value>Folders unavailable. Please start Syncthing</value>
+    <value>Folders unavailable. Please start irongoo</value>
   </data>
   <data name="AboutView_UnknownVersion" xml:space="preserve">
     <value>Unknown</value>
     <comment>Shown within AboutView_SyncthingVersion if Syncthing's version couldn't be determined</comment>
   </data>
   <data name="Dialog_ConfirmKillAllProcesses_Message" xml:space="preserve">
-    <value>Are you sure you want to kill all Syncthing processes, even those not managed by SyncTrayzor?
+    <value>Are you sure you want to kill all irongoo processes, even those not managed by irongoo?
 
-This risks corrupting Syncthing's database. ONLY do this if you are unable to start Syncthing because another Syncthing process is currently running.</value>
+This risks corrupting irongoo's database. ONLY do this if you are unable to start irongoo because another irongoo process is currently running.</value>
     <comment>Body for the dialog show when the user clicks on ShellView_Menu_Syncthing_KillAll</comment>
   </data>
   <data name="Dialog_ConfirmKillAllProcesses_Title" xml:space="preserve">
@@ -303,11 +303,11 @@ This risks corrupting Syncthing's database. ONLY do this if you are unable to st
     <comment>Title for the dialog shown when the user clicks on ShellView_Menu_Syncthing_KillAll</comment>
   </data>
   <data name="Dialog_FailedToStartSyncthing_Message" xml:space="preserve">
-    <value>Failed to start Syncthing.
+    <value>Failed to start irongoo.
 
 Please read the log to determine the cause.
 
-If "FATAL: Cannot open database" appears, please close any other open instances of Syncthing. If SyncTrayzor crashed previously, there may still be zombie Syncthing processes alive. Please use the menu option "Syncthing -&gt; Kill all Syncthing processes" to stop them, then use "Syncthing -&gt; Start" to start Syncthing again.</value>
+If "FATAL: Cannot open database" appears, please close any other open instances of irongoo. If irongoo crashed previously, there may still be zombie irongoo processes alive. Please use the menu option "irongoo -&gt; Kill all irongoo processes" to stop them, then use "irongoo -&gt; Start" to start irongoo again.</value>
     <comment>Content of the dialog shown when Syncthing couldn't be started (and exited with an error). Instructs the user on how to proceed.
 
 "FATAL: Cannot Open Database" should remain in English
@@ -315,11 +315,11 @@ If "FATAL: Cannot open database" appears, please close any other open instances 
 The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to ShellView_Menu_Syncthing_KillAll, while "Syncthing -&gt;Start" corresponds to ShellView_Menu_Syncthing_Start</comment>
   </data>
   <data name="Dialog_FailedToStartSyncthing_Title" xml:space="preserve">
-    <value>Syncthing failed to start</value>
+    <value>irongoo failed to start</value>
     <comment>Title of the dialog shown when Syncthing couldn't be started (and exited with an error)</comment>
   </data>
   <data name="Dialog_SyncthingBlockedByGroupPolicy_Message" xml:space="preserve">
-    <value>Unable to start Syncthing: {0}
+    <value>Unable to start irongoo: {0}
 
 This could be because Windows if set up to forbid executing files in AppData, or because you have anti-malware installed (e.g. CryptoPrevent ) which prevents executing files in AppData.
 
@@ -329,7 +329,7 @@ Please adjust your settings / whitelists to allow '{1}' to execute</value>
 {1}: Path to Syncthing executable</comment>
   </data>
   <data name="Dialog_SyncthingBlockedByGroupPolicy_Title" xml:space="preserve">
-    <value>Error starting Syncthing</value>
+    <value>Error starting irongoo</value>
     <comment>Title of dialog shown when Syncthing couldn't start because of group policy settings (probably)</comment>
   </data>
   <data name="SettingsView_Validation_InvalidUrl" xml:space="preserve">
@@ -359,7 +359,7 @@ Please adjust your settings / whitelists to allow '{1}' to execute</value>
     <value>Notes:</value>
   </data>
   <data name="ThirdPartyComponentsView_Intro" xml:space="preserve">
-    <value>SyncTrayzor is built using many open-source components, and would not exist without them.
+    <value>irongoo is built using many open-source components, and would not exist without them.
 Details on each component, and its license text, are shown below.</value>
   </data>
   <data name="ThirdPartyComponentsView_Title" xml:space="preserve">
@@ -383,7 +383,7 @@ Details on each component, and its license text, are shown below.</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to exit</comment>
   </data>
   <data name="TrayIcon_Menu_Restore" xml:space="preserve">
-    <value>Open SyncTrayzor</value>
+    <value>Open irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to restore itself from the tray, and be visible to the user</comment>
   </data>
   <data name="TrayIcon_Menu_Settings" xml:space="preserve">
@@ -391,16 +391,16 @@ Details on each component, and its license text, are shown below.</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to show the Settings dialog</comment>
   </data>
   <data name="TrayIcon_Menu_StartSyncthing" xml:space="preserve">
-    <value>Start Syncthing</value>
+    <value>Start irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to start Syncthing. Only available if Syncthing isn't running</comment>
   </data>
   <data name="TrayIcon_Menu_StopSyncthing" xml:space="preserve">
-    <value>Stop Syncthing</value>
+    <value>Stop irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to stop Syncthing. Only available if Syncthing is running</comment>
   </data>
   <data name="UnhandledExceptionView_IntroMessage" xml:space="preserve">
     <value>Oops! Something went badly wrong.
-SyncTrayzor is going to have to close. Sorry about that</value>
+irongoo is going to have to close. Sorry about that</value>
   </data>
   <data name="UnhandledExceptionView_LogFileLocation_Description" xml:space="preserve">
     <value>You may be asked to provide a log file.</value>
@@ -419,11 +419,11 @@ SyncTrayzor is going to have to close. Sorry about that</value>
     <comment>Title of the dialog shown when an unhandled exception occurs</comment>
   </data>
   <data name="ViewerView_SyncthingStarting" xml:space="preserve">
-    <value>Syncthing Starting...</value>
+    <value>irongoo Starting...</value>
     <comment>Text shown in the centre of the screen when Syncthing is starting, but there's no UI to display yet</comment>
   </data>
   <data name="ViewerView_SyncthingStopped" xml:space="preserve">
-    <value>Syncthing Stopped</value>
+    <value>irongoo Stopped</value>
     <comment>Text shown in the centre of the screen when Syncthing is stopped</comment>
   </data>
   <data name="Generic_Dialog_No" xml:space="preserve">
@@ -470,22 +470,22 @@ SyncTrayzor is going to have to close. Sorry about that</value>
     <value>Restart</value>
   </data>
   <data name="TrayIcon_Menu_RestartSyncthing" xml:space="preserve">
-    <value>Restart Syncthing</value>
+    <value>Restart irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to restart</comment>
   </data>
   <data name="SettingsView_Tab_Syncthing" xml:space="preserve">
-    <value>Syncthing</value>
+    <value>irongoo</value>
     <comment>'Syncthing' settings tab</comment>
   </data>
   <data name="SettingsView_Tab_SyncTrayzor" xml:space="preserve">
-    <value>SyncTrayzor</value>
+    <value>irongoo</value>
     <comment>'SyncTrayzor' settings tab</comment>
   </data>
   <data name="SettingsView_SyncthingDenyUpgrade" xml:space="preserve">
-    <value>Stop Syncthing auto-upgrading</value>
+    <value>Stop irongoo auto-upgrading</value>
   </data>
   <data name="SettingsView_SyncthingDenyUpgrade_ToolTip" xml:space="preserve">
-    <value>Stop Syncthing from auto-upgrading. This is useful if a new version of Syncthing breaks compatibility with SyncTrayzor. You will need to downgrade the syncthing.exe file in SyncTrayzor's config folder</value>
+    <value>Stop irongoo from auto-upgrading. This is useful if a new version of irongoo breaks compatibility with irongoo. You will need to downgrade the syncthing.exe file in irongoo's config folder</value>
   </data>
   <data name="TrayIcon_Menu_OpenFolder" xml:space="preserve">
     <value>Open Folder</value>
@@ -496,7 +496,7 @@ SyncTrayzor is going to have to close. Sorry about that</value>
     <comment>Button shown in the web interface, alongside the native 'rescan' and 'edit' buttons. Allows the folder to be opened in Explorer</comment>
   </data>
   <data name="ViewerView_StartSyncthing" xml:space="preserve">
-    <value>Start Syncthing</value>
+    <value>Start irongoo</value>
     <comment>Link show in the centre of the screen when Syncthing is stopped, allowing the user to start syncthing</comment>
   </data>
   <data name="SettingsView_UseComputerCulture" xml:space="preserve">
@@ -506,7 +506,7 @@ SyncTrayzor is going to have to close. Sorry about that</value>
     <value>View</value>
   </data>
   <data name="ShellView_Menu_View_SyncthingConsole" xml:space="preserve">
-    <value>Syncthing Console</value>
+    <value>irongoo Console</value>
   </data>
   <data name="NewVersionAlertView_Button_Install" xml:space="preserve">
     <value>Install Now</value>
@@ -530,16 +530,16 @@ SyncTrayzor is going to have to close. Sorry about that</value>
     <value>Must be in the format 'VAR=value' or 'VAR="val1 val2"'</value>
   </data>
   <data name="NewVersionInstalledView_Message" xml:space="preserve">
-    <value>SyncTrayzor version {0} was successfully installed.</value>
+    <value>irongoo version {0} was successfully installed.</value>
   </data>
   <data name="NewVersionInstalledView_Title" xml:space="preserve">
-    <value>SyncTrayzor Updated</value>
+    <value>irongoo Updated</value>
   </data>
   <data name="Dialog_SyncthingDidNotStart_Message" xml:space="preserve">
-    <value>Unable to start Syncthing: {0}. Please see Syncthing's console output for clues.</value>
+    <value>Unable to start irongoo: {0}. Please see irongoo's console output for clues.</value>
   </data>
   <data name="Dialog_SyncthingDidNotStart_Title" xml:space="preserve">
-    <value>Syncthing didn't start correctly</value>
+    <value>irongoo didn't start correctly</value>
   </data>
   <data name="Generic_Copy" xml:space="preserve">
     <value>Copy</value>
@@ -638,20 +638,20 @@ Full Path: {1}</value>
     <value>Disable hardware rendering</value>
   </data>
   <data name="SettingsView_RestartSyncthing_Message" xml:space="preserve">
-    <value>You must restart Syncthing for these settings to take effect.
+    <value>You must restart irongoo for these settings to take effect.
 
-Do you want to restart Syncthing now?</value>
+Do you want to restart irongoo now?</value>
   </data>
   <data name="SettingsView_RestartSyncthing_Title" xml:space="preserve">
-    <value>Restart Syncthing?</value>
+    <value>Restart irongoo?</value>
   </data>
   <data name="SettingsView_RestartSyncTrayzor_Message" xml:space="preserve">
-    <value>You must restart SyncTrayzor for these settings to take effect.
+    <value>You must restart irongoo for these settings to take effect.
 
-Do you want to restart SyncTrayzor now?</value>
+Do you want to restart irongoo now?</value>
   </data>
   <data name="SettingsView_RestartSyncTrayzor_Title" xml:space="preserve">
-    <value>Restart SyncTrayzor?</value>
+    <value>Restart irongoo?</value>
   </data>
   <data name="SettingsView_WatchedFolders_Header_Folder" xml:space="preserve">
     <value>Folder</value>
@@ -675,7 +675,7 @@ Do you want to restart SyncTrayzor now?</value>
     <value>Folders</value>
   </data>
   <data name="SettingsView_Syncthing_ProcessPriority" xml:space="preserve">
-    <value>Syncthing Process Priority:</value>
+    <value>irongoo Process Priority:</value>
   </data>
   <data name="SettingsView_Syncthing_ProcessPriority_AboveNormal" xml:space="preserve">
     <value>Above Normal</value>
@@ -722,7 +722,7 @@ Do you want to restart SyncTrayzor now?</value>
     <value>Pause</value>
   </data>
   <data name="ConsoleView_Title" xml:space="preserve">
-    <value>Syncthing Console</value>
+    <value>irongoo Console</value>
   </data>
   <data name="SettingsView_Tab_Logging" xml:space="preserve">
     <value>Logging</value>
@@ -731,15 +731,15 @@ Do you want to restart SyncTrayzor now?</value>
     <value>Settings</value>
   </data>
   <data name="UnhandledExceptionView_LogFileLocation_Link" xml:space="preserve">
-    <value>You can find SyncTrayzor's log file here.</value>
+    <value>You can find irongoo's log file here.</value>
     <comment>Clickable text to open the location of the log file</comment>
   </data>
   <data name="SettingsView_Logging_ShowSyncthingLog" xml:space="preserve">
-    <value>Show Syncthing Log File</value>
+    <value>Show irongoo Log File</value>
     <comment>Text on button which will open Explorer at the location of Syncthing's log file</comment>
   </data>
   <data name="SettingsView_Logging_ShowSyncTrayzorLog" xml:space="preserve">
-    <value>Show SyncTrayzor Log File</value>
+    <value>Show irongoo Log File</value>
     <comment>Text on button which will open Explorer at the location of SyncTrayzor's log file</comment>
   </data>
   <data name="ConflictResolutionView_Button_Choose" xml:space="preserve">
@@ -791,7 +791,7 @@ Do you want to restart SyncTrayzor now?</value>
     <comment>Text shown in the main body of the window when we're scanning for conflicts, but haven't yet found any</comment>
   </data>
   <data name="ConflictResolutionView_Status_SyncthingNotRunning" xml:space="preserve">
-    <value>Syncthing is not running. Please start Syncthing.</value>
+    <value>irongoo is not running. Please start irongoo.</value>
     <comment>Text shown in the main body of the window when Syncthing isn't running (which means that we can't start scanning for conflicts)</comment>
   </data>
   <data name="ConflictResolutionView_Title" xml:space="preserve">
@@ -828,11 +828,11 @@ Do you want to restart SyncTrayzor now?</value>
       {0}: List of folders with failing file transfers</comment>
   </data>
   <data name="BarAlertsView_FailedTransfer_Details" xml:space="preserve">
-    <value>Please see the Syncthing GUI or Console for clues.</value>
+    <value>Please see the irongoo GUI or Console for clues.</value>
     <comment>Text shown to the right of BarAlertsView_FailedTransfer_AlertText, in non-bold text</comment>
   </data>
   <data name="SettingsView_Alerts_Description" xml:space="preserve">
-    <value>Alerts are shown in a bar at the top of SyncTrayzor, and show a warning triangle on the tray icon.</value>
+    <value>Alerts are shown in a bar at the top of irongoo, and show a warning triangle on the tray icon.</value>
   </data>
   <data name="SettingsView_EnableFailedTransferAlerts" xml:space="preserve">
     <value>Alert of failed file transfers</value>
@@ -847,7 +847,7 @@ Do you want to restart SyncTrayzor now?</value>
     <value>Donate now</value>
   </data>
   <data name="AboutView_Donate_Text" xml:space="preserve">
-    <value>Find SyncTrayzor useful?
+    <value>Find irongoo useful?
 Please donate to the syncthing project.</value>
   </data>
   <data name="ConflictResolutionView_DeleteToRecycleBin" xml:space="preserve">
@@ -889,7 +889,7 @@ Please donate to the syncthing project.</value>
     <value>Show "Add New Device / Folder" balloon messages</value>
   </data>
   <data name="TrayIcon_Balloon_DeviceRejected_Message" xml:space="preserve">
-    <value>Device {0} ({1}) wants to connect. Open SyncTrayzor to add new device</value>
+    <value>Device {0} ({1}) wants to connect. Open irongoo to add new device</value>
     <comment>Balloon shown when device is rejected.
 {0}: Device ID
 {1}: Device Address</comment>
@@ -898,7 +898,7 @@ Please donate to the syncthing project.</value>
     <value>Connect device?</value>
   </data>
   <data name="TrayIcon_Balloon_FolderRejected_Message" xml:space="preserve">
-    <value>{0} wants to share folder {1}. Open SyncTrayzor to add new folder</value>
+    <value>{0} wants to share folder {1}. Open irongoo to add new folder</value>
     <comment>Balloon shown when folder is rejected.
 {0}: Device name
 {1}: Folder ID</comment>
@@ -919,13 +919,13 @@ Please donate to the syncthing project.</value>
     <value>Synchronizing</value>
   </data>
   <data name="SettingsView_SyncthingCustomHomePath" xml:space="preserve">
-    <value>Syncthing Custom Home Path:</value>
+    <value>irongoo Custom Home Path:</value>
   </data>
   <data name="SettingsView_SyncthingCustomHomePath_ToolTip" xml:space="preserve">
-    <value>If set, overrides the default path for Syncthing's database and configuration</value>
+    <value>If set, overrides the default path for irongoo's database and configuration</value>
   </data>
   <data name="Settings_SyncthingCommandLineFlags" xml:space="preserve">
-    <value>Syncthing Command-line Flags</value>
+    <value>irongoo Command-line Flags</value>
   </data>
   <data name="ConflictResolutionView_ChooseNewestConflict_Button" xml:space="preserve">
     <value>Choose Newest Conflict</value>
@@ -972,7 +972,7 @@ Please donate to the syncthing project.</value>
     <comment>Name for the Trace log level (which provides the most debug info)</comment>
   </data>
   <data name="SettingsView_WatchedFolderEnabledInSyncthing" xml:space="preserve">
-    <value>You have enabled filesystem watchers for one or more folders in Syncthing, and so the corresponding watchers in SyncTrayzor have been disabled.</value>
+    <value>You have enabled filesystem watchers for one or more folders in irongoo, and so the corresponding watchers in irongoo have been disabled.</value>
     <comment>Text shown below the list of folders in the settings if the filesystem watcher for one or more folders has been enabled in Syncthing, meaning that SyncTrayzor's filesystem watcher for the corresponding folder(s) will be disabled</comment>
   </data>
   <data name="SettingsView_WatchedFolderEnabledInSyncthing_Note" xml:space="preserve">
@@ -989,7 +989,7 @@ Please donate to the syncthing project.</value>
     <value>Unable to set auto-start</value>
   </data>
   <data name="SettingsView_SyncthingCustomPath" xml:space="preserve">
-    <value>Syncthing Custom Path</value>
+    <value>irongoo Custom Path</value>
   </data>
   <data name="TrayIcon_Menu_RescanAllFolders" xml:space="preserve">
     <value>Rescan All Folders</value>
@@ -1015,11 +1015,11 @@ Please donate to the syncthing project.</value>
     <comment>When the base file for a conflict is not found, this placeholder is shown instead of the actual file name</comment>
   </data>
   <data name="ViewerView_CefCacheLocked" xml:space="preserve">
-    <value>SyncTrayzor detected that another instance is currently running using the same configuration. Please stop any other SyncTrayzor instances, or restart your system to close them.</value>
+    <value>irongoo detected that another instance is currently running using the same configuration. Please stop any other irongoo instances, or restart your system to close them.</value>
     <comment>Shown when the embedded browser cannot acquire exclusive access to its cache folder, because another SyncTrayzor instance is running in a different location.</comment>
   </data>
   <data name="ViewerView_CefCacheLocked_Title" xml:space="preserve">
-    <value>Conflicting SyncTrayzor processes detected</value>
+    <value>Conflicting irongoo processes detected</value>
     <comment>Title of the window when the ViewerView_CefCacheLocked message is displayed</comment>
   </data>
 </root>

@@ -71,8 +71,8 @@
     <value>现在捐赠</value>
   </data>
   <data name="AboutView_Donate_Text" xml:space="preserve">
-    <value>觉得 SyncTrayzor 有用吗？
-请向 Syncthing 项目捐款。</value>
+    <value>觉得 irongoo 有用吗？
+请向 irongoo 项目捐款。</value>
   </data>
   <data name="AboutView_DownloadNewVersion" xml:space="preserve">
     <value>打开下载页面</value>
@@ -90,7 +90,7 @@
     <value>显示开放源代码许可</value>
   </data>
   <data name="AboutView_SyncthingVersion" xml:space="preserve">
-    <value>Syncthing 版本：{0}</value>
+    <value>irongoo 版本：{0}</value>
     <comment>Information showing the user the current version of Syncthing
 {0}: Current Syncthing version</comment>
   </data>
@@ -118,7 +118,7 @@
 {0}: List of folders with failing file transfers</comment>
   </data>
   <data name="BarAlertsView_FailedTransfer_Details" xml:space="preserve">
-    <value>请查看 Syncthing GUI 或控制台以获取线索。</value>
+    <value>请查看 irongoo GUI 或控制台以获取线索。</value>
     <comment>Text shown to the right of BarAlertsView_FailedTransfer_AlertText, in non-bold text</comment>
   </data>
   <data name="BarAlertsView_IntelXeGraphics_AlertText" xml:space="preserve">
@@ -223,7 +223,7 @@
     <comment>Text shown in the main body of the window when we're scanning for conflicts, but haven't yet found any</comment>
   </data>
   <data name="ConflictResolutionView_Status_SyncthingNotRunning" xml:space="preserve">
-    <value>Syncthing 未运行。请启动 Syncthing。</value>
+    <value>irongoo 未运行。请启动 irongoo。</value>
     <comment>Text shown in the main body of the window when Syncthing isn't running (which means that we can't start scanning for conflicts)</comment>
   </data>
   <data name="ConflictResolutionView_Title" xml:space="preserve">
@@ -246,12 +246,12 @@
     <value>设置</value>
   </data>
   <data name="ConsoleView_Title" xml:space="preserve">
-    <value>Syncthing 控制台</value>
+    <value>irongoo 控制台</value>
   </data>
   <data name="Dialog_ConfirmKillAllProcesses_Message" xml:space="preserve">
-    <value>是否确定要终止所有 Syncthing 进程，甚至是那些不受 SyncTrayzor 管理的进程？
+    <value>是否确定要终止所有 irongoo 进程，甚至是那些不受 irongoo 管理的进程？
 
-这可能会损坏 Syncthing 的数据库。仅当您因其他 Syncthing 进程正在运行而无法启动 Syncthing 时才应执行此操作。</value>
+这可能会损坏 irongoo 的数据库。仅当您因其他 irongoo 进程正在运行而无法启动 irongoo 时才应执行此操作。</value>
     <comment>Body for the dialog show when the user clicks on ShellView_Menu_Syncthing_KillAll</comment>
   </data>
   <data name="Dialog_ConfirmKillAllProcesses_Title" xml:space="preserve">
@@ -259,11 +259,11 @@
     <comment>Title for the dialog shown when the user clicks on ShellView_Menu_Syncthing_KillAll</comment>
   </data>
   <data name="Dialog_FailedToStartSyncthing_Message" xml:space="preserve">
-    <value>无法启动 Syncthing。
+    <value>无法启动 irongoo。
 
 请阅读日志以确定原因。
 
-如果出现“致命错误：无法打开数据库”，请关闭所有其他打开的 Syncthing 实例。如果 SyncTrayzor 之前崩溃过，则可能仍有残留的 Syncthing 进程处于活动状态。请使用菜单选项“Syncthing -&gt; 终止所有 Syncthing 进程”停止它们，然后使用“Syncthing -&gt; 启动”重新启动 Syncthing。</value>
+如果出现“致命错误：无法打开数据库”，请关闭所有其他打开的 irongoo 实例。如果 irongoo 之前崩溃过，则可能仍有残留的 irongoo 进程处于活动状态。请使用菜单选项“irongoo -&gt; 终止所有 irongoo 进程”停止它们，然后使用“irongoo -&gt; 启动”重新启动 irongoo。</value>
     <comment>Content of the dialog shown when Syncthing couldn't be started (and exited with an error). Instructs the user on how to proceed.
 
 "FATAL: Cannot Open Database" should remain in English
@@ -271,11 +271,11 @@
 The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to ShellView_Menu_Syncthing_KillAll, while "Syncthing -&gt;Start" corresponds to ShellView_Menu_Syncthing_Start</comment>
   </data>
   <data name="Dialog_FailedToStartSyncthing_Title" xml:space="preserve">
-    <value>Syncthing 无法启动</value>
+    <value>irongoo 无法启动</value>
     <comment>Title of the dialog shown when Syncthing couldn't be started (and exited with an error)</comment>
   </data>
   <data name="Dialog_SyncthingBlockedByGroupPolicy_Message" xml:space="preserve">
-    <value>无法启动 Syncthing：{0}
+    <value>无法启动 irongoo：{0}
 
 这可能是因为 Windows 设置为禁止执行 AppData 中的文件，或者您安装了反恶意软件（例如 CryptoPrevent），阻止了执行 AppData 中的文件。
 
@@ -285,14 +285,14 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
 {1}: Path to Syncthing executable</comment>
   </data>
   <data name="Dialog_SyncthingBlockedByGroupPolicy_Title" xml:space="preserve">
-    <value>启动 Syncthing 时出错</value>
+    <value>启动 irongoo 时出错</value>
     <comment>Title of dialog shown when Syncthing couldn't start because of group policy settings (probably)</comment>
   </data>
   <data name="Dialog_SyncthingDidNotStart_Message" xml:space="preserve">
-    <value>无法启动 Syncthing：{0}。请查看 Syncthing 的控制台输出以获取线索。</value>
+    <value>无法启动 irongoo：{0}。请查看 irongoo 的控制台输出以获取线索。</value>
   </data>
   <data name="Dialog_SyncthingDidNotStart_Title" xml:space="preserve">
-    <value>Syncthing 未正确启动</value>
+    <value>irongoo 未正确启动</value>
   </data>
   <data name="FileTranfersTrayView_Header_Downloading" xml:space="preserve">
     <value>正在下载</value>
@@ -393,27 +393,27 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>When a new version is available, the user receives a prompt. This message tells the user how to permanently disable new version prompts. 'The Settings page' corresponds to ShellView_Menu_File. 'Help -&gt;About' corresponds to ShellView_Menu_Help_About.</comment>
   </data>
   <data name="NewVersionAlertView_NewVersionAvailable" xml:space="preserve">
-    <value>SyncTrayzor 版本 {0} 可用！</value>
+    <value>irongoo 版本 {0} 可用！</value>
     <comment>When a new version is available, the user receives a prompt. This text appears at the top of that prompt</comment>
   </data>
   <data name="NewVersionAlertView_Title" xml:space="preserve">
-    <value>SyncTrayzor 有可用的更新</value>
+    <value>irongoo 有可用的更新</value>
     <comment>When a new version is available, the user receives a prompt. This is the title of that prompt.</comment>
   </data>
   <data name="NewVersionAlertView_ViewChangelog" xml:space="preserve">
     <value>查看更新日志</value>
   </data>
   <data name="NewVersionInstalledView_Message" xml:space="preserve">
-    <value>SyncTrayzor 版本 {0} 已成功安装。</value>
+    <value>irongoo 版本 {0} 已成功安装。</value>
   </data>
   <data name="NewVersionInstalledView_Title" xml:space="preserve">
-    <value>SyncTrayzor 已更新</value>
+    <value>irongoo 已更新</value>
   </data>
   <data name="SettingsView_AlertOnNewVersion" xml:space="preserve">
-    <value>SyncTrayzor 有新版本可用时发出提醒</value>
+    <value>irongoo 有新版本可用时发出提醒</value>
   </data>
   <data name="SettingsView_Alerts_Description" xml:space="preserve">
-    <value>警报提示会显示在 SyncTrayzor 顶部栏，并在托盘图标上显示警告三角形。</value>
+    <value>警报提示会显示在 irongoo 顶部栏，并在托盘图标上显示警告三角形。</value>
   </data>
   <data name="SettingsView_Alerts_SeeFolders" xml:space="preserve">
     <value>在“文件夹”标签页上完全禁用提示消息</value>
@@ -457,11 +457,11 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>Name for the Trace log level (which provides the most debug info)</comment>
   </data>
   <data name="SettingsView_Logging_ShowSyncTrayzorLog" xml:space="preserve">
-    <value>显示 SyncTrayzor 日志文件</value>
+    <value>显示 irongoo 日志文件</value>
     <comment>Text on button which will open Explorer at the location of SyncTrayzor's log file</comment>
   </data>
   <data name="SettingsView_Logging_ShowSyncthingLog" xml:space="preserve">
-    <value>显示 Syncthing 日志文件</value>
+    <value>显示 irongoo 日志文件</value>
     <comment>Text on button which will open Explorer at the location of Syncthing's log file</comment>
   </data>
   <data name="SettingsView_MeteredNetworks" xml:space="preserve">
@@ -481,20 +481,20 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <value>仅在关闭时显示托盘图标</value>
   </data>
   <data name="SettingsView_RestartSyncTrayzor_Message" xml:space="preserve">
-    <value>您必须重启 SyncTrayzor 才能使这些设置生效。
+    <value>您必须重启 irongoo 才能使这些设置生效。
 
-是否现在要重启 SyncTrayzor？</value>
+是否现在要重启 irongoo？</value>
   </data>
   <data name="SettingsView_RestartSyncTrayzor_Title" xml:space="preserve">
-    <value>重启 SyncTrayzor？</value>
+    <value>重启 irongoo？</value>
   </data>
   <data name="SettingsView_RestartSyncthing_Message" xml:space="preserve">
-    <value>您必须重启 Syncthing 才能使这些设置生效。
+    <value>您必须重启 irongoo 才能使这些设置生效。
 
-是否现在要重启 Syncthing？</value>
+是否现在要重启 irongoo？</value>
   </data>
   <data name="SettingsView_RestartSyncthing_Title" xml:space="preserve">
-    <value>重启 Syncthing？</value>
+    <value>重启 irongoo？</value>
   </data>
   <data name="SettingsView_Section_Advanced" xml:space="preserve">
     <value>高级</value>
@@ -531,40 +531,40 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>Setting allowing the user to specify that SyncTrayzor should be started when the user logs in</comment>
   </data>
   <data name="SettingsView_StartOnLogin_PermissionDenied" xml:space="preserve">
-    <value>权限被拒绝。请以管理员身份启动 SyncTrayzor 来更改这些设置。</value>
+    <value>权限被拒绝。请以管理员身份启动 irongoo 来更改这些设置。</value>
     <comment>Message displayed instead of SettingsView_StartOnLogin SettingsView_StartMinimized when the user doesn't have permission to edit the registry</comment>
   </data>
   <data name="SettingsView_StartSyncthingAutomatically" xml:space="preserve">
-    <value>SyncTrayzor 启动时启动 Syncthing</value>
+    <value>irongoo 启动时启动 irongoo</value>
     <comment>Setting allowing the user to specify that Syncthing should be start automatically when SyncTrayzor starts</comment>
   </data>
   <data name="SettingsView_SyncthingAddress" xml:space="preserve">
     <value>GUI 监听地址：</value>
   </data>
   <data name="SettingsView_SyncthingAddress_ToolTip" xml:space="preserve">
-    <value>SyncTrayzor 会覆盖 Syncthing 配置中指定的“GUI 监听地址”。但您可以在此处将其设置为任意值。</value>
+    <value>irongoo 会覆盖 irongoo 配置中指定的“GUI 监听地址”。但您可以在此处将其设置为任意值。</value>
     <comment>ToolTip shown when a user hovers over the SettingsView_SyncthingAddress text input. This shows more information on the input.</comment>
   </data>
   <data name="SettingsView_SyncthingCustomHomePath" xml:space="preserve">
-    <value>Syncthing 自定义主目录路径：</value>
+    <value>irongoo 自定义主目录路径：</value>
   </data>
   <data name="SettingsView_SyncthingCustomHomePath_ToolTip" xml:space="preserve">
-    <value>如果设置，则覆盖 Syncthing 数据库和配置的默认路径</value>
+    <value>如果设置，则覆盖 irongoo 数据库和配置的默认路径</value>
   </data>
   <data name="SettingsView_SyncthingCustomPath" xml:space="preserve">
-    <value>Syncthing 自定义路径</value>
+    <value>irongoo 自定义路径</value>
   </data>
   <data name="SettingsView_SyncthingDenyUpgrade" xml:space="preserve">
-    <value>停止 Syncthing 自动升级</value>
+    <value>停止 irongoo 自动升级</value>
   </data>
   <data name="SettingsView_SyncthingDenyUpgrade_ToolTip" xml:space="preserve">
-    <value>停止 Syncthing 自动升级。如果新版本的 Syncthing 破坏了与 SyncTrayzor 的兼容性时，这将非常有用。您需要降级 SyncTrayzor 配置文件夹中的 syncthing.exe 文件</value>
+    <value>停止 irongoo 自动升级。如果新版本的 irongoo 破坏了与 irongoo 的兼容性时，这将非常有用。您需要降级 irongoo 配置文件夹中的 syncthing.exe 文件</value>
   </data>
   <data name="SettingsView_SyncthingEnvironmentalVariables" xml:space="preserve">
-    <value>Syncthing 环境变量：</value>
+    <value>irongoo 环境变量：</value>
   </data>
   <data name="SettingsView_Syncthing_ProcessPriority" xml:space="preserve">
-    <value>Syncthing 进程优先级：</value>
+    <value>irongoo 进程优先级：</value>
   </data>
   <data name="SettingsView_Syncthing_ProcessPriority_AboveNormal" xml:space="preserve">
     <value>高于正常优先级</value>
@@ -625,7 +625,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <value>必须采用 VAR=值 或 VAR="值1 值2" 格式</value>
   </data>
   <data name="SettingsView_WatchedFolderEnabledInSyncthing" xml:space="preserve">
-    <value>您已在 Syncthing 中为一个或多个文件夹启用文件系统监视器，因此 SyncTrayzor 中的相应监视器已禁用。</value>
+    <value>您已在 irongoo 中为一个或多个文件夹启用文件系统监视器，因此 irongoo 中的相应监视器已禁用。</value>
     <comment>Text shown below the list of folders in the settings if the filesystem watcher for one or more folders has been enabled in Syncthing, meaning that SyncTrayzor's filesystem watcher for the corresponding folder(s) will be disabled</comment>
   </data>
   <data name="SettingsView_WatchedFolderEnabledInSyncthing_Note" xml:space="preserve">
@@ -633,7 +633,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>Text shown in bold just before SettingsView_WatchedFolderEnabledInSyncthing</comment>
   </data>
   <data name="SettingsView_WatchedFolders_Explanation" xml:space="preserve">
-    <value>监视：文件夹将被监视更改，这意味着您可以在 Syncthing 中设置更长的轮询间隔。
+    <value>监视：文件夹将被监视更改，这意味着您可以在 irongoo 中设置更长的轮询间隔。
 
 通知：当此文件夹中的文件更新时，您将收到“已同步”提示消息。</value>
   </data>
@@ -647,10 +647,10 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <value>监视</value>
   </data>
   <data name="SettingsView_WatchedFolders_Unavailable" xml:space="preserve">
-    <value>文件夹不可用。请启动 Syncthing</value>
+    <value>文件夹不可用。请启动 irongoo</value>
   </data>
   <data name="Settings_SyncthingCommandLineFlags" xml:space="preserve">
-    <value>Syncthing 命令行标志</value>
+    <value>irongoo 命令行标志</value>
   </data>
   <data name="ShellView_Donate" xml:space="preserve">
     <value>捐赠</value>
@@ -675,7 +675,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <value>关于</value>
   </data>
   <data name="ShellView_Menu_Syncthing_KillAll" xml:space="preserve">
-    <value>终止所有 Syncthing 进程</value>
+    <value>终止所有 irongoo 进程</value>
   </data>
   <data name="ShellView_Menu_Syncthing_OpenExternal" xml:space="preserve">
     <value>在外部浏览器中打开</value>
@@ -696,7 +696,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <value>查看</value>
   </data>
   <data name="ShellView_Menu_View_SyncthingConsole" xml:space="preserve">
-    <value>Syncthing 控制台</value>
+    <value>irongoo 控制台</value>
   </data>
   <data name="ShellView_Menu_Zoom" xml:space="preserve">
     <value>缩放浏览器</value>
@@ -729,7 +729,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <value>注释：</value>
   </data>
   <data name="ThirdPartyComponentsView_Intro" xml:space="preserve">
-    <value>SyncTrayzor 是使用众多开源组件构建的，如果没有这些组件，SyncTrayzor 就不会存在。
+    <value>irongoo 是使用众多开源组件构建的，如果没有这些组件，irongoo 就不会存在。
 每个组件的详细信息及其许可文本如下所示。</value>
   </data>
   <data name="ThirdPartyComponentsView_Title" xml:space="preserve">
@@ -773,7 +773,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>Title of tray icon balloon when another device disconnected</comment>
   </data>
   <data name="TrayIcon_Balloon_DeviceRejected_Message" xml:space="preserve">
-    <value>设备 {0}（{1}）想要连接。打开 SyncTrayzor 添加新设备</value>
+    <value>设备 {0}（{1}）想要连接。打开 irongoo 添加新设备</value>
     <comment>Balloon shown when device is rejected.
 {0}: Device ID
 {1}: Device Address</comment>
@@ -831,7 +831,7 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
 {1}: File that was updated</comment>
   </data>
   <data name="TrayIcon_Balloon_FolderRejected_Message" xml:space="preserve">
-    <value>{0} 想要分享文件夹 {1}。打开 SyncTrayzor 添加新文件夹</value>
+    <value>{0} 想要分享文件夹 {1}。打开 irongoo 添加新文件夹</value>
     <comment>Balloon shown when folder is rejected.
 {0}: Device name
 {1}: Folder ID</comment>
@@ -856,11 +856,11 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>Menu option available when right-clicking the tray icon. Allows the user to re-scan all folders</comment>
   </data>
   <data name="TrayIcon_Menu_RestartSyncthing" xml:space="preserve">
-    <value>重启 Syncthing</value>
+    <value>重启 irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to restart</comment>
   </data>
   <data name="TrayIcon_Menu_Restore" xml:space="preserve">
-    <value>打开 SyncTrayzor</value>
+    <value>打开 irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to restore itself from the tray, and be visible to the user</comment>
   </data>
   <data name="TrayIcon_Menu_Settings" xml:space="preserve">
@@ -868,23 +868,23 @@ The menu option "Syncthing -&gt;Kill all Syncthing processes" corresponds to She
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to show the Settings dialog</comment>
   </data>
   <data name="TrayIcon_Menu_StartSyncthing" xml:space="preserve">
-    <value>启动 Syncthing</value>
+    <value>启动 irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to start Syncthing. Only available if Syncthing isn't running</comment>
   </data>
   <data name="TrayIcon_Menu_StopSyncthing" xml:space="preserve">
-    <value>停止 Syncthing</value>
+    <value>停止 irongoo</value>
     <comment>Menu option available when right-clicking the tray icon. Instructs SyncTrayzor to stop Syncthing. Only available if Syncthing is running</comment>
   </data>
   <data name="UnhandledExceptionView_IntroMessage" xml:space="preserve">
     <value>糟糕！出了点大问题。
-SyncTrayzor 将不得不关闭。很抱歉</value>
+irongoo 将不得不关闭。很抱歉</value>
   </data>
   <data name="UnhandledExceptionView_LogFileLocation_Description" xml:space="preserve">
     <value>可能会要求您提供日志文件。</value>
     <comment>When an unhandled exception occurs, the user is informed that they may have to provide a log file</comment>
   </data>
   <data name="UnhandledExceptionView_LogFileLocation_Link" xml:space="preserve">
-    <value>您可以在此处找到 SyncTrayzor 的日志文件。</value>
+    <value>您可以在此处找到 irongoo 的日志文件。</value>
     <comment>Clickable text to open the location of the log file</comment>
   </data>
   <data name="UnhandledExceptionView_PleaseOpenIssue_Post" xml:space="preserve">
@@ -908,34 +908,34 @@ SyncTrayzor 将不得不关闭。很抱歉</value>
     <comment>Button shown in the web interface, alongside the native 'rescan' and 'edit' buttons. Allows the folder to be opened in Explorer</comment>
   </data>
   <data name="ViewerView_StartSyncthing" xml:space="preserve">
-    <value>启动 Syncthing</value>
+    <value>启动 irongoo</value>
     <comment>Link show in the centre of the screen when Syncthing is stopped, allowing the user to start syncthing</comment>
   </data>
   <data name="ViewerView_SyncthingStarting" xml:space="preserve">
-    <value>Syncthing 正在启动…</value>
+    <value>irongoo 正在启动…</value>
     <comment>Text shown in the centre of the screen when Syncthing is starting, but there's no UI to display yet</comment>
   </data>
   <data name="ViewerView_SyncthingStopped" xml:space="preserve">
-    <value>Syncthing 已停止</value>
+    <value>irongoo 已停止</value>
     <comment>Text shown in the centre of the screen when Syncthing is stopped</comment>
   </data>
   <data name="SettingsView_Section_Syncthing" xml:space="preserve">
-    <value>Syncthing</value>
+    <value>irongoo</value>
   </data>
   <data name="TrayIcon_Balloon_FinishedSyncing_Multiple" xml:space="preserve">
     <value>{0}: {1:list:{}|; }</value>
   </data>
   <data name="SettingsView_Section_SyncTrayzor" xml:space="preserve">
-    <value>SyncTrayzor</value>
+    <value>irongoo</value>
   </data>
   <data name="ShellView_Menu_Syncthing" xml:space="preserve">
-    <value>Syncthing</value>
+    <value>铁甲</value>
   </data>
   <data name="SettingsView_Tab_Syncthing" xml:space="preserve">
-    <value>Syncthing</value>
+    <value>irongoo</value>
   </data>
   <data name="SettingsView_Tab_SyncTrayzor" xml:space="preserve">
-    <value>SyncTrayzor</value>
+    <value>irongoo</value>
   </data>
   <data name="SettingsView_KeepActivityPopupOpen" xml:space="preserve">
     <value>保持活动弹窗打开</value>

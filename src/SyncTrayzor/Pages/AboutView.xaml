@@ -1,4 +1,4 @@
-﻿<Window x:Class="SyncTrayzor.Pages.AboutView"
+<Window x:Class="SyncTrayzor.Pages.AboutView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:s="https://github.com/canton7/Stylet"
@@ -17,7 +17,10 @@
         </Style>
     </Window.Resources>
     <DockPanel LastChildFill="False" Margin="10">
-        <TextBlock DockPanel.Dock="Top" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Margin="0,0,0,20">SyncTrayzor</TextBlock>
+        <Border DockPanel.Dock="Top" Background="#0b0d10" CornerRadius="6" Padding="12,10" Margin="0,0,0,16" HorizontalAlignment="Stretch">
+            <Image Source="pack://application:,,,/Resources/logo-white-pink.png"
+                   Stretch="Uniform" MaxHeight="36" HorizontalAlignment="Center"/>
+        </Border>
         <TextBlock DockPanel.Dock="Top" Margin="0,5" Text="{l:Loc AboutView_Version, ValueBinding={Binding Version}}"/>
         <TextBlock DockPanel.Dock="Top" Margin="0,5" Text="{l:Loc AboutView_SyncthingVersion, ValueBinding={Binding SyncthingVersion}}"/>
         <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="0,5"

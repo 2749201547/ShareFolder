@@ -1,4 +1,4 @@
-﻿namespace SyncTrayzor.Pages.Tray
+namespace SyncTrayzor.Pages.Tray
 {
     using System;
     using System.ComponentModel;
@@ -31,7 +31,7 @@
             FileTransfersViewModel = fileTransfersViewModelFactory();
             FileTransfersViewModel.ConductWith(this);
 
-            DisplayName = "SyncTrayzor";
+            DisplayName = "irongoo";
 
             Activated += ViewModel_Activated;
             Deactivated += ViewModel_Deactivated;

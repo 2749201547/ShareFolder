@@ -57,7 +57,11 @@ namespace SyncTrayzor.Services.Config
         }
 
         public bool UseComputerCulture { get; set; }
+        /// <summary>Explicit WPF chrome culture, e.g. en-US or zh-CN. Empty follows UseComputerCulture.</summary>
+        public string UiCulture { get; set; }
         public double SyncthingConsoleHeight { get; set; }
+        /// <summary>When true, hide the Syncthing "This Device" panel. Default false (shown).</summary>
+        public bool HideThisDevice { get; set; }
         public WindowPlacement WindowPlacement { get; set; }
         public double SyncthingWebBrowserZoomLevel { get; set; }
         public int LastSeenInstallCount { get; set; }
@@ -97,7 +101,9 @@ namespace SyncTrayzor.Services.Config
             ObfuscateDeviceIDs = true;
             LatestNotifiedVersion = null;
             UseComputerCulture = true;
-            SyncthingConsoleHeight = DefaultSyncthingConsoleHeight;
+            UiCulture = null;
+            SyncthingConsoleHeight = 0;
+            HideThisDevice = false;
             WindowPlacement = null;
             SyncthingWebBrowserZoomLevel = 0;
             LastSeenInstallCount = 0;
@@ -139,7 +145,9 @@ namespace SyncTrayzor.Services.Config
             ObfuscateDeviceIDs = other.ObfuscateDeviceIDs;
             LatestNotifiedVersion = other.LatestNotifiedVersion;
             UseComputerCulture = other.UseComputerCulture;
+            UiCulture = other.UiCulture;
             SyncthingConsoleHeight = other.SyncthingConsoleHeight;
+            HideThisDevice = other.HideThisDevice;
             WindowPlacement = other.WindowPlacement;
             SyncthingWebBrowserZoomLevel = other.SyncthingWebBrowserZoomLevel;
             LastSeenInstallCount = other.LastSeenInstallCount;

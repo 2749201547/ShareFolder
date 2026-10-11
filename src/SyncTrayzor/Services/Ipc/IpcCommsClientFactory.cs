@@ -1,4 +1,4 @@
-﻿using NLog;
+using NLog;
 using System;
 using System.Diagnostics;
 
@@ -24,7 +24,7 @@ namespace SyncTrayzor.Services.Ipc
         {
             var ourLocation = Environment.ProcessPath!;
             var ourProcess = Process.GetCurrentProcess();
-            var processes = Process.GetProcessesByName("SyncTrayzor");
+            var processes = Process.GetProcessesByName("irongoo");
             logger.Debug("Checking for other SyncTrayzor processes");
             foreach (var process in processes)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Data;
 using System.Windows.Markup;
 
@@ -35,11 +35,16 @@ namespace SyncTrayzor.Localization
             // Most of these conditions are redundent, according to the assertions above. However I'll still state them,
             // for clarity.
 
-            // A static key, and no values
+            // A static key, and no values — bind to UiLanguage so chrome updates when GUI language changes
             if (Key != null && KeyBinding == null && ValueBinding == null && ValueBindings == null)
             {
-                // Just returning a string!
-                return Localizer.Translate(Key);
+                var binding = new Binding(nameof(UiLanguage.Revision))
+                {
+                    Source = UiLanguage.Instance,
+                    Mode = BindingMode.OneWay,
+                    Converter = new StaticKeyRevisionConverter { Key = Key }
+                };
+                return binding.ProvideValue(serviceProvider);
             }
             // A static key, and a single value
             if (Key != null && KeyBinding == null && ValueBinding != null && ValueBindings == null)

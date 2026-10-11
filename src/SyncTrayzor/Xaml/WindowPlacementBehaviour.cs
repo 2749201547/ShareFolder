@@ -1,4 +1,4 @@
-﻿using SyncTrayzor.Services.Config;
+using SyncTrayzor.Services.Config;
 using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
@@ -46,6 +46,11 @@ namespace SyncTrayzor.Xaml
 
         private void SourceInitialized(object sender, EventArgs e)
         {
+            var hwnd = new WindowInteropHelper(AssociatedObject).Handle;
+
+            // Hide Windows accent-colored window border (ColorPrevalence), for a cleaner edge like modern apps.
+            DisableAccentWindowBorder(hwnd);
+
             if (Placement == null)
                 return;
 
@@ -63,7 +68,7 @@ namespace SyncTrayzor.Xaml
                     Placement.NormalPosition.Bottom),
             };
 
-            if (!NativeMethods.SetWindowPlacement(new WindowInteropHelper(AssociatedObject).Handle, ref nativePlacement))
+            if (!NativeMethods.SetWindowPlacement(hwnd, ref nativePlacement))
             {
                 logger.Warn("Call to SetWindowPlacement failed", new Win32Exception(Marshal.GetLastWin32Error()));
             }
@@ -71,6 +76,30 @@ namespace SyncTrayzor.Xaml
             // Not 100% sure why this is needed, but if the window is minimzed before being closed to tray,
             // then is restored, we can end up in a state where we aren't active
             AssociatedObject.Activate();
+        }
+
+        private static void DisableAccentWindowBorder(IntPtr hwnd)
+        {
+            if (hwnd == IntPtr.Zero)
+                return;
+
+            // Win10 1809+: prefer dark title bar when system chrome is still used
+            const int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
+            const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
+            var useDark = 1;
+            NativeMethods.DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE, ref useDark, sizeof(int));
+            NativeMethods.DwmSetWindowAttribute(hwnd, DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1, ref useDark, sizeof(int));
+
+            // Win11+: remove accent-colored border / caption
+            // https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute
+            const int DWMWA_BORDER_COLOR = 34;
+            const int DWMWA_CAPTION_COLOR = 35;
+            const int DWMWA_COLOR_NONE = unchecked((int)0xFFFFFFFE);
+            var none = DWMWA_COLOR_NONE;
+            NativeMethods.DwmSetWindowAttribute(hwnd, DWMWA_BORDER_COLOR, ref none, sizeof(int));
+            // Dark caption fallback if system chrome is visible
+            var caption = unchecked((int)0x002B2B2B); // COLORREF 0x00BBGGRR
+            NativeMethods.DwmSetWindowAttribute(hwnd, DWMWA_CAPTION_COLOR, ref caption, sizeof(int));
         }
 
         private void Closing(object sender, CancelEventArgs e)
@@ -155,6 +184,9 @@ namespace SyncTrayzor.Xaml
 
             [DllImport("user32.dll", SetLastError = true)]
             public static extern bool GetWindowPlacement(IntPtr hWnd, out WINDOWPLACEMENT lpwndpl);
+
+            [DllImport("dwmapi.dll")]
+            public static extern int DwmSetWindowAttribute(IntPtr hwnd, int dwAttribute, ref int pvAttribute, int cbAttribute);
         }
     }
 }

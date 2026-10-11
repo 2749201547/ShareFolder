@@ -1,10 +1,30 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Data;
 
 namespace SyncTrayzor.Localization
 {
+    /// <summary>
+    /// Re-evaluates a static localization key whenever <see cref="UiLanguage.Revision"/> changes.
+    /// </summary>
+    public class StaticKeyRevisionConverter : IValueConverter
+    {
+        public string Key { get; set; }
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (Key == null)
+                throw new InvalidOperationException("Key must not be null");
+            return Localizer.Translate(Key);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+    }
+
     /// <summary>
     /// Localization converter which takes a static key and is applied to a single value
     /// </summary>

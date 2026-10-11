@@ -1,4 +1,5 @@
-﻿using NLog;
+using NLog;
+using SyncTrayzor.Services;
 using SyncTrayzor.Services.Config;
 using System;
 using System.Collections.Generic;
@@ -113,6 +114,14 @@ public class SyncthingProcessRunner : ISyncthingProcessRunner
 
         if (!File.Exists(ExecutablePath))
             throw new Exception($"Unable to find Syncthing at path {ExecutablePath}");
+
+        // Overlay Syncthing GUI assets so external browsers also get irongoo branding
+        if (!string.IsNullOrWhiteSpace(CustomHomeDir))
+        {
+            IrongooGuiBranding.ApplyToSyncthingHome(CustomHomeDir);
+            // Decline usage-report dialog + dismiss GUI-auth banner before Syncthing boots
+            IrongooGuiBranding.SuppressStartupPrompts(CustomHomeDir, ExecutablePath);
+        }
 
         var processStartInfo = new ProcessStartInfo()
         {
