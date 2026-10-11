@@ -137,7 +137,54 @@ namespace SyncTrayzor.Services
             "  color: #ffffff !important;\n" +
             "}\n" +
             ".text-info,\n" +
-            ".text-success {\n" +
+            ".text-success,\n" +
+            ".text-primary,\n" +
+            "a.text-primary {\n" +
+            "  color: #E73F91 !important;\n" +
+            "}\n" +
+            /* Bootstrap primary blue → pink (Save, tabs, links) */
+            ".btn-primary,\n" +
+            ".btn-primary:hover,\n" +
+            ".btn-primary:focus,\n" +
+            ".btn-primary:active,\n" +
+            ".btn-primary:active:hover,\n" +
+            ".btn-primary.active,\n" +
+            ".btn-primary.active:hover,\n" +
+            ".open > .dropdown-toggle.btn-primary {\n" +
+            "  background-color: #E73F91 !important;\n" +
+            "  background-image: none !important;\n" +
+            "  border-color: #C9347A !important;\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            ".btn-primary:hover,\n" +
+            ".btn-primary:focus {\n" +
+            "  background-color: #d63582 !important;\n" +
+            "  border-color: #b82d70 !important;\n" +
+            "}\n" +
+            ".nav-tabs > li > a,\n" +
+            ".nav-tabs > li > a:hover,\n" +
+            ".nav-tabs > li > a:focus,\n" +
+            ".nav-tabs > li.active > a,\n" +
+            ".nav-tabs > li.active > a:hover,\n" +
+            ".nav-tabs > li.active > a:focus,\n" +
+            ".nav-tabs > li > a .fas,\n" +
+            ".nav-tabs > li > a .fa,\n" +
+            ".nav-tabs > li > a .far {\n" +
+            "  color: #E73F91 !important;\n" +
+            "}\n" +
+            ".nav-tabs > li.active > a,\n" +
+            ".nav-tabs > li.active > a:hover,\n" +
+            ".nav-tabs > li.active > a:focus {\n" +
+            "  background-color: #252526 !important;\n" +
+            "  border-color: #333333 #333333 #252526 !important;\n" +
+            "}\n" +
+            ".modal .text-primary,\n" +
+            ".modal label .fas.text-primary,\n" +
+            ".modal label .fa.text-primary,\n" +
+            ".modal h4 .fas,\n" +
+            ".modal h4 .fa,\n" +
+            ".modal .panel-heading .fas.text-primary,\n" +
+            ".modal .panel-heading .fa.text-primary {\n" +
             "  color: #E73F91 !important;\n" +
             "}\n" +
             "* {\n" +
@@ -175,6 +222,125 @@ namespace SyncTrayzor.Services
             "}\n" +
             "#idqr .well.irongoo-copied {\n" +
             "  background-color: #E73F91 !important;\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            /* Modals: header X close; hide footer Close; larger centered Save */
+            ".modal .modal-header {\n" +
+            "  position: relative !important;\n" +
+            "  padding-right: 44px !important;\n" +
+            "}\n" +
+            ".modal .modal-header .irongoo-modal-close {\n" +
+            "  position: absolute !important;\n" +
+            "  top: 50% !important;\n" +
+            "  right: 10px !important;\n" +
+            "  transform: translateY(-50%) !important;\n" +
+            "  width: 28px !important;\n" +
+            "  height: 28px !important;\n" +
+            "  padding: 0 !important;\n" +
+            "  margin: 0 !important;\n" +
+            "  border: none !important;\n" +
+            "  border-radius: 4px !important;\n" +
+            "  background: transparent !important;\n" +
+            "  color: inherit !important;\n" +
+            "  font-size: 18px !important;\n" +
+            "  line-height: 28px !important;\n" +
+            "  text-align: center !important;\n" +
+            "  cursor: pointer !important;\n" +
+            "  opacity: .9 !important;\n" +
+            "}\n" +
+            ".modal .modal-header .irongoo-modal-close:hover {\n" +
+            "  background: rgba(255,255,255,.12) !important;\n" +
+            "  opacity: 1 !important;\n" +
+            "}\n" +
+            "#idqr .modal-header .irongoo-modal-close,\n" +
+            ".modal .modal-header.alert .irongoo-modal-close {\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            "#idqr .modal-header .irongoo-modal-close:hover,\n" +
+            ".modal .modal-header.alert .irongoo-modal-close:hover {\n" +
+            "  background: rgba(0,0,0,.18) !important;\n" +
+            "}\n" +
+            "#idqr .modal-footer {\n" +
+            "  display: none !important;\n" +
+            "}\n" +
+            ".modal .modal-footer {\n" +
+            "  display: flex !important;\n" +
+            "  justify-content: center !important;\n" +
+            "  align-items: center !important;\n" +
+            "  position: relative !important;\n" +
+            "  min-height: 60px !important;\n" +
+            "  text-align: center !important;\n" +
+            "}\n" +
+            /* Hide Close only next to Save; keep Yes/No on confirm dialogs */
+            ".modal .modal-footer:has(.btn-primary) > .btn-default[data-dismiss=\"modal\"],\n" +
+            ".modal .modal-footer:has(.btn-primary) > button.btn-default[data-dismiss=\"modal\"] {\n" +
+            "  display: none !important;\n" +
+            "}\n" +
+            ".modal .modal-footer .btn-danger {\n" +
+            "  font-size: 15px !important;\n" +
+            "  padding: 10px 32px !important;\n" +
+            "  min-width: 120px !important;\n" +
+            "  float: none !important;\n" +
+            "  margin: 0 6px !important;\n" +
+            "}\n" +
+            ".modal .modal-footer:not(:has(.btn-primary)) .btn-default[data-dismiss=\"modal\"] {\n" +
+            "  display: inline-block !important;\n" +
+            "  font-size: 15px !important;\n" +
+            "  padding: 10px 32px !important;\n" +
+            "  min-width: 120px !important;\n" +
+            "  float: none !important;\n" +
+            "  margin: 0 6px !important;\n" +
+            "}\n" +
+            ".modal .modal-footer .btn-primary {\n" +
+            "  font-size: 15px !important;\n" +
+            "  padding: 10px 40px !important;\n" +
+            "  min-width: 148px !important;\n" +
+            "  float: none !important;\n" +
+            "  margin: 0 auto !important;\n" +
+            "  background-color: #E73F91 !important;\n" +
+            "  background-image: none !important;\n" +
+            "  border-color: #C9347A !important;\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            ".modal .modal-footer .btn-primary:hover,\n" +
+            ".modal .modal-footer .btn-primary:focus {\n" +
+            "  background-color: #d63582 !important;\n" +
+            "  border-color: #b82d70 !important;\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            ".modal .modal-footer .pull-left,\n" +
+            ".modal .modal-footer .btn-warning.pull-left,\n" +
+            ".modal .modal-footer > .pull-left {\n" +
+            "  position: absolute !important;\n" +
+            "  left: 15px !important;\n" +
+            "  top: 50% !important;\n" +
+            "  transform: translateY(-50%) !important;\n" +
+            "  float: none !important;\n" +
+            "  margin: 0 !important;\n" +
+            "}\n" +
+            /* Shared-device checkboxes: green when checked */
+            ".modal input[type=\"checkbox\"],\n" +
+            "share-template input[type=\"checkbox\"],\n" +
+            ".form-horizontal input[type=\"checkbox\"] {\n" +
+            "  accent-color: #2ea043 !important;\n" +
+            "}\n" +
+            /* Remove buttons: red instead of warning yellow */
+            ".modal .modal-footer .btn-warning,\n" +
+            "#editFolder .modal-footer .btn-warning,\n" +
+            "#editDevice .modal-footer .btn-warning,\n" +
+            ".modal .modal-footer button[data-target*=\"remove-\"] {\n" +
+            "  background-color: #d9534f !important;\n" +
+            "  background-image: none !important;\n" +
+            "  border-color: #c9302c !important;\n" +
+            "  color: #ffffff !important;\n" +
+            "}\n" +
+            ".modal .modal-footer .btn-warning:hover,\n" +
+            ".modal .modal-footer .btn-warning:focus,\n" +
+            "#editFolder .modal-footer .btn-warning:hover,\n" +
+            "#editDevice .modal-footer .btn-warning:hover,\n" +
+            ".modal .modal-footer button[data-target*=\"remove-\"]:hover {\n" +
+            "  background-color: #c9302c !important;\n" +
+            "  border-color: #ac2925 !important;\n" +
             "  color: #ffffff !important;\n" +
             "}\n" +
             "#irongoo-copied-toast {\n" +
@@ -229,7 +395,7 @@ namespace SyncTrayzor.Services
             "}\n" +
             ".irongoo-share-heading .fas,\n" +
             ".irongoo-share-heading .fa {\n" +
-            "  color: #5bc0de !important;\n" +
+            "  color: #E73F91 !important;\n" +
             "}\n" +
             "[language-select] .dropdown-menu {\n" +
             "  column-count: 1 !important;\n" +
@@ -675,7 +841,7 @@ namespace SyncTrayzor.Services
 
         private const string IrongooExtrasJs =
             "(function(){\n" +
-            "  if (window.__irongooExtrasV === 62) return; window.__irongooExtrasV = 62;\n" +
+            "  if (window.__irongooExtrasV === 67) return; window.__irongooExtrasV = 67;\n" +
             "  if (typeof window.__irongooShowThisDevice === 'undefined') window.__irongooShowThisDevice = true;\n" +
             "  window.__irongooFloatWired = false;\n" +
             "  try{\n" +
@@ -690,7 +856,7 @@ namespace SyncTrayzor.Services
             "      l.id = 'irongoo-theme-link'; l.rel = 'stylesheet';\n" +
             "      (document.head || document.documentElement).appendChild(l);\n" +
             "    }\n" +
-            "    l.href = 'assets/css/irongoo.css?v=62';\n" +
+            "    l.href = 'assets/css/irongoo.css?v=67';\n" +
             "  })();\n" +
             "  var IRONGOO_USERS_SVG = '<svg class=\"irongoo-users-svg\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 10C14.2091 10 16 8.20914 16 6 16 3.79086 14.2091 2 12 2 9.79086 2 8 3.79086 8 6 8 8.20914 9.79086 10 12 10ZM5.5 13C6.88071 13 8 11.8807 8 10.5 8 9.11929 6.88071 8 5.5 8 4.11929 8 3 9.11929 3 10.5 3 11.8807 4.11929 13 5.5 13ZM21 10.5C21 11.8807 19.8807 13 18.5 13 17.1193 13 16 11.8807 16 10.5 16 9.11929 17.1193 8 18.5 8 19.8807 8 21 9.11929 21 10.5ZM12 11C14.7614 11 17 13.2386 17 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5 15.9999C5 15.307 5.10067 14.6376 5.28818 14.0056L5.11864 14.0204C3.36503 14.2104 2 15.6958 2 17.4999V21.9999H5V15.9999ZM22 21.9999V17.4999C22 15.6378 20.5459 14.1153 18.7118 14.0056 18.8993 14.6376 19 15.307 19 15.9999V21.9999H22Z\"></path></svg>';\n" +
             "  var IRONGOO_FOLDER_SVG = '<svg class=\"irongoo-folder-svg\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M3 21C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5H20C20.5523 5 21 5.44772 21 6V9H4V18.996L6 11H22.5L20.1894 20.2425C20.0781 20.6877 19.6781 21 19.2192 21H3Z\"></path></svg>';\n" +
@@ -1484,6 +1650,44 @@ namespace SyncTrayzor.Services
             "      }\n" +
             "    }catch(e){}\n" +
             "  }\n" +
+            "  function dismissModal(modal){\n" +
+            "    if(!modal) return;\n" +
+            "    try{\n" +
+            "      if(window.jQuery) window.jQuery(modal).modal('hide');\n" +
+            "      else {\n" +
+            "        modal.classList.remove('in','show');\n" +
+            "        modal.style.display='none';\n" +
+            "        modal.setAttribute('aria-hidden','true');\n" +
+            "        var backs=document.querySelectorAll('.modal-backdrop');\n" +
+            "        for(var bi=0;bi<backs.length;bi++){ if(backs[bi].parentNode) backs[bi].parentNode.removeChild(backs[bi]); }\n" +
+            "        if(document.body) document.body.classList.remove('modal-open');\n" +
+            "      }\n" +
+            "    }catch(e){}\n" +
+            "  }\n" +
+            "  function ensureModalHeaderClose(modal){\n" +
+            "    if(!modal) return;\n" +
+            "    var header=modal.querySelector('.modal-header');\n" +
+            "    if(!header) return;\n" +
+            "    var btn=header.querySelector('.irongoo-modal-close');\n" +
+            "    if(!btn){\n" +
+            "      btn=document.createElement('button');\n" +
+            "      btn.type='button';\n" +
+            "      btn.className='irongoo-modal-close';\n" +
+            "      btn.setAttribute('aria-label','Close');\n" +
+            "      btn.setAttribute('title', isZh()?'关闭':'Close');\n" +
+            "      btn.innerHTML='<span class=\"fas fa-times\" aria-hidden=\"true\"></span>';\n" +
+            "      btn.addEventListener('click', function(ev){\n" +
+            "        ev.preventDefault(); ev.stopPropagation();\n" +
+            "        dismissModal(modal);\n" +
+            "      });\n" +
+            "      header.appendChild(btn);\n" +
+            "    }\n" +
+            "  }\n" +
+            "  function ensureAllModalHeaderCloses(){\n" +
+            "    var modals=document.querySelectorAll('.modal');\n" +
+            "    for(var i=0;i<modals.length;i++) ensureModalHeaderClose(modals[i]);\n" +
+            "  }\n" +
+            "  function ensureIdqrHeaderClose(){ ensureModalHeaderClose(document.getElementById('idqr')); }\n" +
             "  function ensureDeviceGroupOptionalLabel(){\n" +
             "    var lab=document.querySelector('label[for=\"deviceGroup\"]');\n" +
             "    if(!lab) return;\n" +
@@ -1581,6 +1785,7 @@ namespace SyncTrayzor.Services
             "    ensureRemoteUsersIcons();\n" +
             "    ensureThisDeviceIcon();\n" +
             "    ensureFolderIcons();\n" +
+            "    ensureAllModalHeaderCloses();\n" +
             "    if(editFolderOpen()){\n" +
             "      ensureDeviceGroupOptionalLabel();\n" +
             "      ensureFolderGroupOptionalLabel();\n" +
@@ -1597,6 +1802,7 @@ namespace SyncTrayzor.Services
             "    ensureRemoteUsersIcons();\n" +
             "    ensureThisDeviceIcon();\n" +
             "    ensureFolderIcons();\n" +
+            "    ensureAllModalHeaderCloses();\n" +
             "    if(editFolderOpen()){\n" +
             "      ensureDeviceGroupOptionalLabel();\n" +
             "      ensureFolderGroupOptionalLabel();\n" +
@@ -1644,12 +1850,17 @@ namespace SyncTrayzor.Services
             "    }, true);\n" +
             "  }\n" +
             "  document.addEventListener('shown.bs.modal', function(ev){\n" +
-            "    if(ev && ev.target && ev.target.id==='editFolder'){\n" +
+            "    if(!ev || !ev.target) return;\n" +
+            "    ensureModalHeaderClose(ev.target);\n" +
+            "    if(ev.target.id==='editFolder'){\n" +
             "      ensureFolderGeneralFieldOrder();\n" +
             "      ensureFolderSharingOnGeneral();\n" +
             "      ensureFolderGroupOptionalLabel();\n" +
             "      ensureDeviceGroupOptionalLabel();\n" +
             "    }\n" +
+            "  }, true);\n" +
+            "  document.addEventListener('show.bs.modal', function(ev){\n" +
+            "    if(ev && ev.target) ensureModalHeaderClose(ev.target);\n" +
             "  }, true);\n" +
             "  new MutationObserver(function(){\n" +
             "    if(window.__irongooNameEditing) return;\n" +

@@ -276,7 +276,7 @@
                               Data="M12.6727,1.61162 L20.7999,9 H17.8267 L12,3.70302 L6,9.15757 V19.0001 H11 V21.0001 H5 C4.44772,21.0001 4,20.5524 4,20.0001 V11.0001 L1,11.0001 L11.3273,1.61162 C11.7087,1.26488 12.2913,1.26488 12.6727,1.61162 Z M14,11 H23 V18 H14 V11 Z M16,13 V16 H21 V13 H16 Z M24,21 H13 V19 H24 V21 Z"/>
                     </Viewbox>
                 </ToggleButton>
-                <ToggleButton Style="{StaticResource CaptionToggleButtonStyle}"
+                <ToggleButton Style="{StaticResource CaptionToggleIconOnlyStyle}"
                               IsChecked="{Binding ShowConsole}"
                               ToolTip="{l:Loc ShellView_Menu_View_SyncthingConsole}"
                               shell:WindowChrome.IsHitTestVisibleInChrome="True">
