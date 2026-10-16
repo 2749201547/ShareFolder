@@ -38,7 +38,7 @@ namespace SyncTrayzor.Services.Config
         public int DirectoryWatcherBackoffMilliseconds { get; set; } = 2000;
         public int DirectoryWatcherFolderExistenceCheckMilliseconds { get; set; } = 3000;
         public string IssuesUrl { get; set; } = "http://github.com/GermanCoding/SyncTrayzor/issues";
-        public bool EnableAutostartOnFirstStart { get; set; } = false;
+        public bool EnableAutostartOnFirstStart { get; set; } = true;
         public int CefRemoteDebuggingPort { get; set; } = 0;
         public SyncTrayzorVariant Variant { get; set; } = SyncTrayzorVariant.Portable;
         public int SyncthingConnectTimeoutSeconds { get; set; } = 600;

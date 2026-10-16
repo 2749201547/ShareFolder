@@ -199,7 +199,7 @@ namespace SyncTrayzor
             autostartProvider.IsEnabled = false;
 #endif
 
-            // If it's not in portable mode, and if we had to create config (i.e. it's the first start ever), then enable autostart
+            // First start ever: default both "Start on login" and "Start minimized"
             if (autostartProvider.CanWrite && AppSettings.Instance.EnableAutostartOnFirstStart &&
                 configurationProvider.HadToCreateConfiguration)
                 autostartProvider.SetAutoStart(new AutostartConfiguration()
