@@ -2283,6 +2283,65 @@ namespace SyncTrayzor.Services
         }
 
         /// <summary>
+        /// Marker written into portable packages (<c>data/.irongoo-new-install</c>).
+        /// On first launch we delete any shipped device certs so each machine gets a unique Device ID.
+        /// </summary>
+        public const string FreshInstallMarkerFileName = ".irongoo-new-install";
+
+        /// <summary>
+        /// If the portable package still contains a fresh-install marker, wipe any bundled
+        /// Syncthing identity (cert/key/config) so this machine generates its own Device ID.
+        /// The marker is removed afterwards so later runs keep the new identity.
+        /// </summary>
+        public static void EnsureUniqueDeviceIdentityOnFreshInstall(string syncthingHomeDir)
+        {
+            if (string.IsNullOrWhiteSpace(syncthingHomeDir))
+                return;
+
+            try
+            {
+                var homeFull = Path.GetFullPath(syncthingHomeDir);
+                var dataDir = Path.GetDirectoryName(homeFull.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+                if (string.IsNullOrEmpty(dataDir))
+                    return;
+
+                var markerPath = Path.Combine(dataDir, FreshInstallMarkerFileName);
+                if (!File.Exists(markerPath))
+                    return;
+
+                Directory.CreateDirectory(syncthingHomeDir);
+
+                var identityFiles = new[]
+                {
+                    "cert.pem",
+                    "key.pem",
+                    "https-cert.pem",
+                    "https-key.pem",
+                    "syncthing.lock",
+                    "csrftokens.txt",
+                };
+                foreach (var name in identityFiles)
+                {
+                    var path = Path.Combine(syncthingHomeDir, name);
+                    if (File.Exists(path))
+                        File.Delete(path);
+                }
+
+                foreach (var path in Directory.EnumerateFiles(syncthingHomeDir, "config.xml*"))
+                    File.Delete(path);
+
+                File.Delete(markerPath);
+                logger.Info(
+                    "Fresh-install marker consumed; cleared Syncthing device identity under {0}",
+                    syncthingHomeDir);
+            }
+            catch (Exception e)
+            {
+                logger.Warn(e, "Failed to clear Syncthing identity for fresh install");
+            }
+        }
+
+        /// <summary>
         /// Decline anonymous usage reporting and dismiss the GUI-auth notice before Syncthing starts.
         /// Generates a default config first when the home directory is brand new.
         /// </summary>
@@ -2293,6 +2352,8 @@ namespace SyncTrayzor.Services
 
             try
             {
+                EnsureUniqueDeviceIdentityOnFreshInstall(syncthingHomeDir);
+
                 Directory.CreateDirectory(syncthingHomeDir);
                 var configPath = Path.Combine(syncthingHomeDir, "config.xml");
 

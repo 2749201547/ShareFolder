@@ -62,7 +62,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "{userappdata}\{#AppDataFolder}"
 
 [Files]
-Source: "{#AppBin}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+; Never install a pre-baked Syncthing device identity if one slipped into dist
+Source: "{#AppBin}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs; \
+  Excludes: "cert.pem,key.pem,https-cert.pem,https-key.pem,syncthing.lock,csrftokens.txt"
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExeName}"

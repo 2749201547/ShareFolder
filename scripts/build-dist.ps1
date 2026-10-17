@@ -52,3 +52,8 @@ foreach ($file in $additionalFiles) {
         exit 1
     }
 }
+
+# Never ship a pre-generated device identity (cert.pem / key.pem) with the package
+. "$PSScriptRoot\helpers\clear-package-runtime-state.ps1"
+Clear-PackageRuntimeState -Root $mergedDir -Portable:($Variant -eq "Portable")
+
